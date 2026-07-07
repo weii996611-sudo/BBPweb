@@ -173,20 +173,17 @@
 
             <div class="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
                 
-                <!-- 環形圖 1：使用人數 -->
                 <div class="flex flex-col items-center group">
                     <div class="relative w-40 h-40">
-                        <!-- 底圖灰環 -->
                         <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="42" stroke="#1f1e24" stroke-width="8" fill="none" />
-                            <!-- 動態紅環 (利用 stroke-dasharray 控制長度) -->
                             <circle cx="50" cy="50" r="42" stroke="#e52e3d" stroke-width="8" fill="none" 
                                     stroke-dasharray="264" stroke-dashoffset="264" stroke-linecap="round" 
                                     class="transition-all duration-[2000ms] ease-out chart-ring" data-percent="85" />
                         </svg>
                         <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
                             <div class="flex items-baseline">
-                                <span class="text-3xl font-black counter" data-target="150000">0</span>
+                                <span class="text-3xl font-black counter" data-target="20000">0</span>
                                 <span class="text-brand-red font-bold ml-1">+</span>
                             </div>
                         </div>
@@ -195,7 +192,25 @@
                     <p class="text-gray-500 text-sm mt-2">全台車友共同守護</p>
                 </div>
 
-                <!-- 環形圖 2：即時回報數量 -->
+                <div class="flex flex-col items-center group">
+                    <div class="relative w-40 h-40">
+                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="42" stroke="#1f1e24" stroke-width="8" fill="none" />
+                            <circle cx="50" cy="50" r="42" stroke="#e52e3d" stroke-width="8" fill="none" 
+                                    stroke-dasharray="264" stroke-dashoffset="264" stroke-linecap="round" 
+                                    class="transition-all duration-[2000ms] ease-out chart-ring" data-percent="70" />
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
+                            <div class="flex items-baseline">
+                                <span class="text-3xl font-black counter" data-target="500">0</span>
+                                <span class="text-brand-red font-bold ml-1">+</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="mt-6 text-xl font-bold text-white">每月即時回報數</h4>
+                    <p class="text-gray-500 text-sm mt-2">精準掌握前方最新路況</p>
+                </div>
+
                 <div class="flex flex-col items-center group">
                     <div class="relative w-40 h-40">
                         <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
@@ -206,29 +221,9 @@
                         </svg>
                         <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
                             <div class="flex items-baseline">
-                                <span class="text-3xl font-black counter" data-target="320000">0</span>
-                                <span class="text-brand-red font-bold ml-1">+</span>
-                            </div>
-                        </div>
-                    </div>
-                    <h4 class="mt-6 text-xl font-bold text-white">每月即時回報數</h4>
-                    <p class="text-gray-500 text-sm mt-2">精準掌握前方最新路況</p>
-                </div>
-
-                <!-- 環形圖 3：省下罰單金額 -->
-                <div class="flex flex-col items-center group">
-                    <div class="relative w-40 h-40">
-                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="42" stroke="#1f1e24" stroke-width="8" fill="none" />
-                            <circle cx="50" cy="50" r="42" stroke="#e52e3d" stroke-width="8" fill="none" 
-                                    stroke-dasharray="264" stroke-dashoffset="264" stroke-linecap="round" 
-                                    class="transition-all duration-[2000ms] ease-out chart-ring" data-percent="100" />
-                        </svg>
-                        <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
-                            <div class="flex items-baseline">
                                 <span class="text-sm text-gray-400 mr-1">NT$</span>
-                                <span class="text-3xl font-black counter" data-target="1200">0</span>
-                                <span class="text-brand-red font-bold ml-1">萬+</span>
+                                <span class="text-3xl font-black counter" data-target="12000">0</span>
+                                <span class="text-brand-red font-bold ml-1">+</span>
                             </div>
                         </div>
                     </div>
