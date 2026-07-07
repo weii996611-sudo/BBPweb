@@ -308,9 +308,9 @@
                         // 1. 執行數字跳動動畫
                         counters.forEach(counter => {
                             const updateCount = () => {
-                                const target = +counter.getAttribute('data-target="20000"');
+                                // 注意：這裡維持 'data-target' 即可，程式會自己去 HTML 抓你設定的 20000 等數字
+                                const target = +counter.getAttribute('data-target');
                                 const count = +counter.innerText.replace(/,/g, '');
-                                // 調整除數控制跳動速度，數字越大跳越慢
                                 const inc = target / 50; 
 
                                 if (count < target) {
@@ -325,8 +325,8 @@
 
                         // 2. 執行 SVG 圓環動畫
                         rings.forEach(ring => {
-                            const percent = ring.getAttribute('data-percent="85"');
-                            // 264 是圓周長 (2 * pi * 42)
+                            // 注意：這裡維持 'data-percent' 即可
+                            const percent = ring.getAttribute('data-percent');
                             const offset = 264 - (percent / 100) * 264; 
                             ring.style.strokeDashoffset = offset;
                         });
