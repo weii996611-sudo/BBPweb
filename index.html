@@ -1,231 +1,186 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BBpatrol 雙平台測速系統 - 您的智慧行車守護者</title>
-
-    <meta name="description" content="BBpatrol 提供 iOS 與 Android 雙平台測速照相提醒。具備智慧懸浮視窗、即時路況圖文回報，以及專屬個性化語音包，讓您開車不無聊，告別罰單。">
-
-    <meta name="keywords" content="測速APP, 測速照相, 路況回報, BBpatrol, 行車安全, 國道測速, 移動測速, 黑箱, 臨檢, 即時資訊">
-
-    <meta property="og:title" content="BBpatrol 雙平台測速系統 - 您的智慧行車守護者">
-    <meta property="og:description" content="即時路況回報、懸浮視窗、個性化語音包，開車不無聊，告別罰單！">
-    <meta property="og:image" content="https://你的網址/預覽圖.jpg"> <meta property="og:url" content="https://bbpatrol.com.tw">
-    <!-- 引入 Tailwind CSS 進行快速現代化切版 -->
+    <meta name="description" content="BBpatrol 提供 iOS 與 Android 雙平台測速照相提醒。具備智慧懸浮視窗、即時路況圖文回報，以及專屬個性化語音包。">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 依據美術設計圖定義的科技深色底 */
-        body {
-            background-color: #1a1921;
-        }
-        /* 熱情紅與漸層設定 */
-        .brand-red {
-            background-color: #e52e3d;
-        }
-        .text-brand-red {
-            color: #e52e3d;
-        }
-        .border-brand-red {
-            borderColor: #e52e3d;
-        }
+        body { background-color: #121215; color: #f3f4f6; }
+        .bg-brand-dark { background-color: #1a1921; }
+        .text-brand-red { color: #e52e3d; }
+        .bg-brand-red { background-color: #e52e3d; }
+        .border-brand-red { border-color: #e52e3d; }
     </style>
 </head>
-<body class="text-gray-200 font-sans antialiased">
+<body class="font-sans antialiased">
 
-    <!-- 導覽列 Navigation -->
-    <nav class="sticky top-0 z-50 bg-[#14131a] bg-opacity-90 backdrop-blur border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <span class="text-xl font-bold tracking-wider text-white">雙平台測速系統</span>
+    <nav class="fixed w-full z-50 bg-[#121215]/80 backdrop-blur-md border-b border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-2xl font-black tracking-widest text-white">
+                BB<span class="text-brand-red">patrol</span>
             </div>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
+            <div class="hidden md:flex space-x-10 text-sm font-medium tracking-wide">
+                <a href="#about" class="hover:text-brand-red transition">關於系統</a>
                 <a href="#features" class="hover:text-brand-red transition">核心功能</a>
-                <a href="#pricing" class="hover:text-brand-red transition">訂閱方案</a>
-                <a href="#announcement" class="hover:text-brand-red transition">平台公告</a>
+                <a href="#pricing" class="hover:text-brand-red transition">語音包訂閱</a>
             </div>
             <div>
-                <a href="#download" class="brand-red text-white text-sm px-5 py-2.5 rounded-full font-semibold hover:bg-red-700 transition shadow-lg shadow-red-900/30">立即下載</a>
+                <a href="#download" class="bg-brand-red text-white text-sm px-6 py-2.5 rounded hover:bg-red-700 transition font-bold tracking-wider">立即下載</a>
             </div>
         </div>
     </nav>
 
-    <!-- 主視覺區 Hero Section -->
-    <header class="relative overflow-hidden pt-20 pb-16 md:pt-32 md:pb-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
-            <!-- 左側文案 -->
-            <div class="space-y-6 text-center md:text-left">
-                <div class="inline-flex items-center space-x-2 bg-red-500/10 text-brand-red text-xs px-3 py-1 rounded-full font-medium">
-                    <span>iOS & Android 雙平台正式登場</span>
-                </div>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-                    開車不無聊，<br><span class="text-brand-red">智慧測速</span>新體驗
-                </h1>
-                <p class="text-gray-400 text-lg max-w-lg mx-auto md:mx-0">
-                    結合即時路況圖文回報、懸浮視窗與個性化語音包，讓您精準掌握前方測速照相，從此告別罰單。
-                </p>
-                <div class="pt-4 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                    <a href="#download" class="brand-red text-white px-8 py-3.5 rounded-xl font-bold hover:bg-red-700 transition text-center shadow-lg shadow-red-900/40">免費下載體驗</a>
-                    <a href="#features" class="bg-gray-800 text-gray-300 px-8 py-3.5 rounded-xl font-bold hover:bg-gray-700 transition text-center border border-gray-700">探索核心功能</a>
-                </div>
-            </div>
-            
-            <!-- 右側：致敬設計圖核心 UI 概念 -->
-            <div class="relative flex justify-center">
-                <!-- 後方裝飾光暈 -->
-                <div class="absolute w-72 h-72 bg-red-600/20 rounded-full blur-3xl -z-10"></div>
-                <!-- 模擬設計圖主時速錶盤 -->
-                <div class="w-72 h-72 rounded-full border-8 border-gray-800 border-t-brand-red flex flex-col items-center justify-center bg-[#222129] shadow-2xl relative">
-                    <span class="text-6xl font-black text-white tracking-tight">100</span>
-                    <span class="text-sm text-gray-400 mt-1">Km/h</span>
-                    <!-- 距離標籤 -->
-                    <div class="absolute -bottom-4 bg-gray-700/90 text-white px-4 py-1.5 rounded-full text-sm font-semibold border border-gray-600 shadow-md">
-                        15 公尺
-                    </div>
-                </div>
-                <!-- 模擬懸浮限速標誌 -->
-                <div class="absolute top-4 right-10 md:right-16 bg-white w-14 h-14 rounded-full border-4 border-red-500 flex items-center justify-center shadow-lg">
-                    <span class="text-xl font-black text-black">60</span>
-                </div>
-                <!-- 固定式標籤 -->
-                <div class="absolute bottom-8 right-6 bg-yellow-500 text-black font-black px-3 py-1.5 rounded-lg shadow-md text-sm border-2 border-black">
-                    固
-                </div>
+    <header class="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#1a1921]">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-[#121215] z-10"></div>
+        <div class="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-red-600/20 rounded-full blur-[120px] z-0"></div>
+        
+        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-16">
+            <span class="text-brand-red font-bold tracking-widest mb-4 border border-brand-red px-4 py-1 rounded-full text-xs">iOS & Android 雙平台正式登場</span>
+            <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-8">
+                精準測速，<br>開車從此<span class="text-brand-red">不無聊</span>。
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                結合即時路況圖文回報、懸浮視窗與個性化語音包。BBpatrol 讓您精準掌握前方路況，告別罰單，享受純粹的駕駛樂趣。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#download" class="bg-brand-red text-white px-8 py-4 rounded font-bold hover:bg-red-700 transition tracking-widest">免費下載體驗</a>
+                <a href="#features" class="bg-transparent border border-white text-white px-8 py-4 rounded font-bold hover:bg-white hover:text-black transition tracking-widest">探索功能</a>
             </div>
         </div>
     </header>
 
-    <!-- 核心功能區 Features Section -->
-    <section id="features" class="py-20 bg-[#14131a]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">強大核心，專為車主打造</h2>
-                <p class="text-gray-400">整合美術設計圖核心精髓，為您提供無縫的路況與導航輔助體驗。</p>
+    <section id="about" class="py-32 bg-[#121215]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6 pr-0 md:pr-10">
+                    <h2 class="text-brand-red font-bold tracking-widest text-sm">BACKGROUND EXECUTIVE</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white leading-snug">背景執行與<br>智慧懸浮視窗</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        我們知道您在開車時需要使用導航。BBpatrol 支援極簡懸浮視窗模式，不論您切換到 Google Maps 或是回到桌面，即時車速（如 100 Km/h）與前方速限警示依然一目了然，默默守護您的安全。
+                    </p>
+                    <ul class="text-gray-300 space-y-3 pt-4">
+                        <li class="flex items-center"><span class="text-brand-red mr-3">✔</span> 視覺化紅色超速警示環</li>
+                        <li class="flex items-center"><span class="text-brand-red mr-3">✔</span> 距離測速桿精準倒數 (公尺)</li>
+                        <li class="flex items-center"><span class="text-brand-red mr-3">✔</span> 支援固定式與區間測速</li>
+                    </ul>
+                </div>
+                <div class="bg-brand-dark rounded-2xl aspect-[4/3] flex items-center justify-center p-8 border border-gray-800 shadow-2xl relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-red-500/5 group-hover:bg-red-500/10 transition duration-500"></div>
+                    <div class="text-center">
+                        <div class="w-48 h-48 rounded-full border-[10px] border-gray-800 border-t-brand-red flex flex-col items-center justify-center bg-[#222129] relative z-10 mx-auto">
+                            <span class="text-5xl font-black text-white">100</span>
+                            <span class="text-xs text-gray-400 mt-1">Km/h</span>
+                        </div>
+                        <p class="mt-6 text-sm text-gray-500 tracking-widest">UI 介面預覽</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-32 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-20">
+                <h2 class="text-brand-red font-bold tracking-widest text-sm">OUR CORE FEATURES</h2>
+                <h3 class="text-3xl md:text-5xl font-bold text-white">專為車主設計的強大功能</h3>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- 特色 1 -->
-                <div class="bg-[#1e1d24] p-8 rounded-2xl border border-gray-800 hover:border-gray-700 transition">
-                    <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-brand-red mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+                <div class="bg-[#121215] p-10 rounded text-center border border-gray-800 hover:border-brand-red transition duration-300 group">
+                    <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-red transition">
+                        <span class="text-2xl">📸</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">智慧懸浮視窗</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        支援背景執行與精簡懸浮視窗模式，不論在使用 Google Maps 還是查看桌面，即時車速與速限警示一目了然。
-                    </p>
+                    <h4 class="text-xl font-bold text-white mb-4">圖文路況回報</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">遇到突發狀況？輸入回報內容並拍照，即時上傳通知全平台車友，建立互助生態圈。</p>
                 </div>
-                <!-- 特色 2 -->
-                <div class="bg-[#1e1d24] p-8 rounded-2xl border border-gray-800 hover:border-gray-700 transition">
-                    <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-brand-red mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                <div class="bg-[#121215] p-10 rounded text-center border border-gray-800 hover:border-brand-red transition duration-300 group">
+                    <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-red transition">
+                        <span class="text-2xl">🎙️</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">多元路況回報</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        提供極簡直覺的「圖文回報」與「一分鐘錄音回報」流程。動動手指或動動口，即時分享前方最新突發事件。
-                    </p>
+                    <h4 class="text-xl font-bold text-white mb-4">一分鐘錄音回報</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">開車不方便打字？直接點擊錄音鍵，最長可錄製一分鐘語音回報，安全又快速。</p>
                 </div>
-                <!-- 特色 3 -->
-                <div class="bg-[#1e1d24] p-8 rounded-2xl border border-gray-800 hover:border-gray-700 transition">
-                    <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-brand-red mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+                <div class="bg-[#121215] p-10 rounded text-center border border-gray-800 hover:border-brand-red transition duration-300 group">
+                    <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-red transition">
+                        <span class="text-2xl">🎵</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">個性化語音包</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        多種聲音隨心切換！支援收藏熱門語音包，更開放車主錄製、上傳個人專屬封面與專屬提示音效，開車從此不無聊。
-                    </p>
+                    <h4 class="text-xl font-bold text-white mb-4">客製化語音包</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">聽膩了機器人聲音？自己錄製專屬提示音，上傳專屬封面圖片，讓您的旅程充滿個人風格。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 訂閱方案區 Pricing Section -->
-    <section id="pricing" class="py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">個性化語音包訂閱方案</h2>
-                <p class="text-gray-400">解鎖完整語音體驗，打造專屬於您的獨特駕駛氛圍</p>
+    <section id="pricing" class="py-32 bg-[#121215]">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-brand-red font-bold tracking-widest text-sm mb-4">SUBSCRIPTION</h2>
+                <h3 class="text-3xl md:text-5xl font-bold text-white">語音包訂閱方案</h3>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- 體驗版 -->
-                <div class="bg-[#1e1d24] p-8 rounded-2xl border border-gray-800 flex flex-col justify-between">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-12 border border-gray-800 rounded bg-brand-dark flex flex-col justify-between">
                     <div>
-                        <h3 class="text-lg font-bold text-gray-400">免費體驗</h3>
-                        <div class="mt-4 text-3xl font-black text-white">NT$ 0 <span class="text-sm text-gray-400 font-normal">/ 永久</span></div>
-                        <ul class="mt-6 space-y-4 text-sm text-gray-400">
-                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> 可試聽 1 個限時語音</li>
-                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> 感受獨特趣味音效</li>
-                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> 體驗版無須付費，輕鬆上手</li>
+                        <h4 class="text-2xl font-bold text-white mb-2">免費體驗</h4>
+                        <p class="text-gray-400 mb-8">輕鬆上手，感受獨特音效</p>
+                        <div class="text-4xl font-black text-white mb-8">NT$ 0</div>
+                        <ul class="space-y-4 text-gray-300">
+                            <li class="flex items-center">✔ 可試聽 1 個限時語音</li>
+                            <li class="flex items-center">✔ 體驗版無須付費</li>
                         </ul>
                     </div>
-                    <button class="mt-8 w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 rounded-xl transition">目前版本</button>
+                    <button class="mt-12 w-full py-4 bg-gray-800 text-white font-bold rounded hover:bg-gray-700 transition">目前版本</button>
                 </div>
-                <!-- 標準版 -->
-                <div class="bg-[#221c21] p-8 rounded-2xl border-2 border-brand-red flex flex-col justify-between relative">
-                    <div class="absolute -top-3.5 right-6 brand-red text-white text-xs px-3 py-1 rounded-full font-bold">熱門推薦</div>
+
+                <div class="p-12 border-2 border-brand-red rounded bg-[#1a1518] flex flex-col justify-between relative">
+                    <div class="absolute top-0 right-0 bg-brand-red text-white text-xs font-bold px-4 py-2 rounded-bl">熱門推薦</div>
                     <div>
-                        <h3 class="text-lg font-bold text-brand-red">標準訂閱</h3>
-                        <div class="mt-4 text-3xl font-black text-white">熱烈募集中 <span class="text-sm text-gray-400 font-normal">/ 完整解鎖</span></div>
-                        <ul class="mt-6 space-y-4 text-sm text-gray-300">
-                            <li class="flex items-center"><span class="text-brand-red mr-2">✓</span> 解鎖 3 個語音包，自由選擇、隨時切換</li>
-                            <li class="flex items-center"><span class="text-brand-red mr-2">✓</span> 錄製專屬語音，自訂個性化音效</li>
-                            <li class="flex items-center"><span class="text-brand-red mr-2">✓</span> 上傳語音圖片，自訂封面與名稱</li>
+                        <h4 class="text-2xl font-bold text-brand-red mb-2">標準訂閱</h4>
+                        <p class="text-gray-400 mb-8">解鎖進階功能，打造專屬體驗</p>
+                        <div class="text-4xl font-black text-white mb-8">完整解鎖</div>
+                        <ul class="space-y-4 text-gray-300">
+                            <li class="flex items-center">✔ 解鎖 3 個語音包，隨時切換</li>
+                            <li class="flex items-center">✔ 錄製專屬語音，自訂音效</li>
+                            <li class="flex items-center">✔ 上傳語音圖片，設定專屬封面</li>
                         </ul>
                     </div>
-                    <button class="mt-8 w-full brand-red hover:bg-red-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-red-900/40">立即訂閱解鎖</button>
+                    <button class="mt-12 w-full py-4 bg-brand-red text-white font-bold rounded hover:bg-red-700 transition">立即訂閱</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 平台公告區 Announcement Section -->
-    <section id="announcement" class="py-20 bg-[#14131a]">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-white mb-8 border-l-4 border-brand-red pl-4">最新平台公告</h2>
-            <div class="bg-[#1e1d24] rounded-2xl border border-gray-800 p-6 space-y-4">
-                <div class="flex items-center justify-between text-xs text-gray-500">
-                    <span>重要交通管制通知</span>
-                    <span>版本 v1.0.0</span>
+    <footer class="bg-black py-16 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+            <div class="col-span-2">
+                <div class="text-2xl font-black tracking-widest text-white mb-4">
+                    BB<span class="text-brand-red">patrol</span>
                 </div>
-                <h3 class="text-lg font-bold text-white">清明節連假國道交通疏導公告</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    預估假期交通量將達到尖峰。首日南向可達平日的 1.5 倍。
-                    高公局研判前兩日以南向車流為主，後兩日以北向車流為主。
-                    相關疏導措施包括清明連假前兩個週休採單一費率再 7 折收費，以鼓勵提前掃墓分散車流。
+                <p class="text-gray-500 text-sm max-w-xs leading-relaxed">
+                    結合即時路況圖文回報、懸浮視窗與個性化語音包。讓您開車不再無聊，專注安全駕駛。
                 </p>
-                <div class="bg-gray-900 p-4 rounded-xl text-xs text-gray-400 space-y-1.5 border border-gray-800">
-                    <p class="font-semibold text-gray-300">⚠️ 注意路段匝道封閉：</p>
-                    <p>1. 假期前 2 個週六 5 至 12 時，封閉國 5 石碇、坪林南向入口。</p>
-                    <p>2. 連假首日 5 至 12 時，封閉國 1 平鎮系統、埔鹽系統南向入口。</p>
+            </div>
+            <div>
+                <h5 class="text-white font-bold mb-4">快速連結</h5>
+                <ul class="space-y-2 text-gray-500 text-sm">
+                    <li><a href="#about" class="hover:text-brand-red transition">關於系統</a></li>
+                    <li><a href="#features" class="hover:text-brand-red transition">核心功能</a></li>
+                    <li><a href="#pricing" class="hover:text-brand-red transition">訂閱方案</a></li>
+                </ul>
+            </div>
+            <div id="download">
+                <h5 class="text-white font-bold mb-4">下載 APP</h5>
+                <div class="space-y-3">
+                    <a href="#" class="block bg-gray-900 border border-gray-800 text-white px-4 py-3 rounded text-center hover:bg-gray-800 transition text-sm">App Store 下載</a>
+                    <a href="#" class="block bg-gray-900 border border-gray-800 text-white px-4 py-3 rounded text-center hover:bg-gray-800 transition text-sm">Google Play 下載</a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- 下載與 Footer 下載區 -->
-    <section id="download" class="py-20 text-center relative overflow-hidden">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
-            <h2 class="text-3xl font-extrabold text-white sm:text-4xl">準備好升級您的智慧駕駛體驗了嗎？</h2>
-            <p class="text-gray-400 max-w-md mx-auto text-sm">
-                立即下載「雙平台測速系統」，同步支援 iOS 與 Android。同意隱私權政策，即刻開啟安全省荷包的行車旅程！
-            </p>
-            <div class="pt-4 flex justify-center gap-4">
-                <!-- 模擬 App Store 按鈕 -->
-                <a href="#" class="bg-black hover:bg-gray-900 border border-gray-700 text-white px-6 py-3 rounded-xl flex items-center space-x-3 transition">
-                    <span class="text-xs text-left block text-gray-400">Download on the<span class="text-sm font-bold block text-white">App Store</span></span>
-                </a>
-                <!-- 模擬 Google Play 按鈕 -->
-                <a href="#" class="bg-black hover:bg-gray-900 border border-gray-700 text-white px-6 py-3 rounded-xl flex items-center space-x-3 transition">
-                    <span class="text-xs text-left block text-gray-400">GET IT ON<span class="text-sm font-bold block text-white">Google Play</span></span>
-                </a>
-            </div>
+        <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-gray-900 text-center text-xs text-gray-600">
+            © 2026 BBpatrol. All rights reserved. 隱私權政策與服務條款
         </div>
-    </section>
-
-    <!-- 底部 Footer -->
-    <footer class="bg-[#100f14] py-8 border-t border-gray-900 text-center text-xs text-gray-600">
-        <p>© 2026 雙平台測速系統. All rights reserved.</p>
-        <p class="mt-2">按下登入或下載表示您已經閱讀並同意服務條款、隱私權政策。</p>
     </footer>
 
 </body>
