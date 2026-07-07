@@ -50,12 +50,12 @@
                     不只是測速照相提醒。BBpatrol 結合即時路況圖文回報、極簡懸浮視窗與客製化語音，讓每趟旅途都安全又充滿樂趣。
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                    <button class="bg-brand-red text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-700 transition flex items-center justify-center gap-2">
+                    <a href="https://apps.apple.com/tw/app/bbpatrol%E9%BB%91%E7%AE%B1%E7%B3%BE%E5%AF%9F%E9%9A%8A/id6746429798" target="_blank" rel="noopener noreferrer" class="bg-brand-red text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-700 transition flex items-center justify-center gap-2">
                         <span>Apple Store 下載</span>
-                    </button>
-                    <button class="bg-gray-800 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-700 transition border border-gray-700 flex items-center justify-center gap-2">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.timer_swift&pli=1" target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-700 transition border border-gray-700 flex items-center justify-center gap-2">
                         <span>Google Play 下載</span>
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -164,6 +164,81 @@
             </div>
         </div>
     </section>
+    
+    <!-- 數據成效：動態環形圖 (Stats Section) -->
+    <section id="app-stats" class="py-24 bg-[#0d0d12] border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-3xl lg:text-5xl font-black text-white mb-4">強大社群，數據會說話</h2>
+            <p class="text-gray-400 mb-16 max-w-2xl mx-auto">加入全台最大的互助駕駛網路。每一次的即時回報，都在為下一位車主省下荷包與時間。</p>
+
+            <div class="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+                
+                <!-- 環形圖 1：使用人數 -->
+                <div class="flex flex-col items-center group">
+                    <div class="relative w-40 h-40">
+                        <!-- 底圖灰環 -->
+                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="42" stroke="#1f1e24" stroke-width="8" fill="none" />
+                            <!-- 動態紅環 (利用 stroke-dasharray 控制長度) -->
+                            <circle cx="50" cy="50" r="42" stroke="#e52e3d" stroke-width="8" fill="none" 
+                                    stroke-dasharray="264" stroke-dashoffset="264" stroke-linecap="round" 
+                                    class="transition-all duration-[2000ms] ease-out chart-ring" data-percent="85" />
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
+                            <div class="flex items-baseline">
+                                <span class="text-3xl font-black counter" data-target="150000">0</span>
+                                <span class="text-brand-red font-bold ml-1">+</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="mt-6 text-xl font-bold text-white">活躍駕駛人數</h4>
+                    <p class="text-gray-500 text-sm mt-2">全台車友共同守護</p>
+                </div>
+
+                <!-- 環形圖 2：即時回報數量 -->
+                <div class="flex flex-col items-center group">
+                    <div class="relative w-40 h-40">
+                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="42" stroke="#1f1e24" stroke-width="8" fill="none" />
+                            <circle cx="50" cy="50" r="42" stroke="#e52e3d" stroke-width="8" fill="none" 
+                                    stroke-dasharray="264" stroke-dashoffset="264" stroke-linecap="round" 
+                                    class="transition-all duration-[2000ms] ease-out chart-ring" data-percent="92" />
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
+                            <div class="flex items-baseline">
+                                <span class="text-3xl font-black counter" data-target="320000">0</span>
+                                <span class="text-brand-red font-bold ml-1">+</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="mt-6 text-xl font-bold text-white">每月即時回報數</h4>
+                    <p class="text-gray-500 text-sm mt-2">精準掌握前方最新路況</p>
+                </div>
+
+                <!-- 環形圖 3：省下罰單金額 -->
+                <div class="flex flex-col items-center group">
+                    <div class="relative w-40 h-40">
+                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="42" stroke="#1f1e24" stroke-width="8" fill="none" />
+                            <circle cx="50" cy="50" r="42" stroke="#e52e3d" stroke-width="8" fill="none" 
+                                    stroke-dasharray="264" stroke-dashoffset="264" stroke-linecap="round" 
+                                    class="transition-all duration-[2000ms] ease-out chart-ring" data-percent="100" />
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
+                            <div class="flex items-baseline">
+                                <span class="text-sm text-gray-400 mr-1">NT$</span>
+                                <span class="text-3xl font-black counter" data-target="1200">0</span>
+                                <span class="text-brand-red font-bold ml-1">萬+</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="mt-6 text-xl font-bold text-white">每月替車主省下</h4>
+                    <p class="text-gray-500 text-sm mt-2">避開罰單，聰明駕駛</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <section id="pricing" class="py-24 lg:py-32">
         <div class="max-w-5xl mx-auto px-6">
@@ -206,8 +281,8 @@
         <h2 class="text-3xl lg:text-5xl font-black text-white mb-6">準備好改變駕駛體驗了嗎？</h2>
         <p class="text-red-100 mb-10 max-w-lg mx-auto">加入 BBpatrol 車友圈，分享即時路況，享受最精準的測速提醒與個性化語音。</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button class="bg-white text-brand-red px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-xl">取得 iOS 版本</button>
-            <button class="bg-black text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition shadow-xl border border-gray-800">取得 Android 版本</button>
+            <a href="https://apps.apple.com/tw/app/bbpatrol%E9%BB%91%E7%AE%B1%E7%B3%BE%E5%AF%9F%E9%9A%8A/id6746429798" target="_blank" rel="noopener noreferrer" class="bg-white text-brand-red px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-xl inline-block">取得 iOS 版本</a>
+            <a href="https://play.google.com/store/apps/details?id=com.timer_swift&pli=1" target="_blank" rel="noopener noreferrer" class="bg-black text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition shadow-xl border border-gray-800 inline-block">取得 Android 版本</a>
         </div>
     </section>
 
@@ -221,6 +296,52 @@
             </div>
         </div>
     </footer>
+    <!-- 數字跳動與環形圖動畫腳本 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const section = document.querySelector('#app-stats');
+            const counters = document.querySelectorAll('.counter');
+            const rings = document.querySelectorAll('.chart-ring');
+            let animated = false;
+
+            // 觀察者模式：當畫面滑到數據區塊時才觸發動畫
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !animated) {
+                        animated = true;
+
+                        // 1. 執行數字跳動動畫
+                        counters.forEach(counter => {
+                            const updateCount = () => {
+                                const target = +counter.getAttribute('data-target="20000"');
+                                const count = +counter.innerText.replace(/,/g, '');
+                                // 調整除數控制跳動速度，數字越大跳越慢
+                                const inc = target / 50; 
+
+                                if (count < target) {
+                                    counter.innerText = Math.ceil(count + inc).toLocaleString();
+                                    setTimeout(updateCount, 40);
+                                } else {
+                                    counter.innerText = target.toLocaleString();
+                                }
+                            };
+                            updateCount();
+                        });
+
+                        // 2. 執行 SVG 圓環動畫
+                        rings.forEach(ring => {
+                            const percent = ring.getAttribute('data-percent="85"');
+                            // 264 是圓周長 (2 * pi * 42)
+                            const offset = 264 - (percent / 100) * 264; 
+                            ring.style.strokeDashoffset = offset;
+                        });
+                    }
+                });
+            }, { threshold: 0.5 }); // 當區塊露出 50% 時觸發
+
+            if(section) observer.observe(section);
+        });
+    </script>
 
 </body>
 </html>
