@@ -106,44 +106,84 @@
         </div>
     </header>
 
-    <!-- 2. 圖文教學流程 (Tutorial Steps) -->
+    <!-- 2. 圖文教學流程 (Tutorial Steps) - 整合左右滑動圖卡牆 -->
     <section id="tutorial" class="py-16 md:py-24 bg-[#121216] border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 md:px-6">
             <div class="text-center mb-12 md:mb-20">
                 <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">不到 1 分鐘，開啟安全旅程</h2>
-                <p class="text-gray-400">超直覺介面，立刻掌握 BBpatrol 的強大功能</p>
+                <p class="text-gray-400 text-sm md:text-base">超直覺介面，立刻掌握 BBpatrol 的強大功能</p>
             </div>
 
             <div class="space-y-16 md:space-y-24">
-                <!-- Step 1 -->
+                
+                <!-- Step 1 (包含左右滑動圖卡牆區塊) -->
                 <div class="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
-                    <div class="bg-[#1a1921] rounded-2xl md:rounded-3xl p-6 border border-gray-800 shadow-xl aspect-video md:aspect-[4/3] flex items-center justify-center relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-                        <!-- 模擬教學圖片 -->
-                        <div class="bg-black/80 p-4 rounded-xl border border-gray-700 w-3/4 text-center z-10 transform group-hover:scale-105 transition duration-500">
-                            <div class="text-brand-red text-2xl mb-2">📍</div>
-                            <div class="text-white font-bold mb-1">智慧懸浮，背景執行</div>
-                            <div class="text-xs text-gray-400">無縫疊加於 Google Maps 之上</div>
+                    
+                    <!-- 左側：可左右滑動的圖卡牆 (Slider) -->
+                    <div class="relative w-full group">
+                        <!-- 電腦版左切換按鈕 -->
+                        <button onclick="scrollSlide(-1)" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 border border-gray-700 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition hidden md:flex hover:bg-brand-red">
+                            &larr;
+                        </button>
+                        
+                        <!-- 圖卡滾動容器 (支援手機滑動與 Snap 對齊) -->
+                        <div id="slideContainer" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth hide-scrollbar gap-4 py-4">
+                            
+                            <!-- 圖卡 1 (請將 src 替換成你在 GitHub 的圖片名稱，例如 img/card1.png) -->
+                            <div class="snap-center shrink-0 w-full flex justify-center">
+                                <div class="bg-[#1a1921] rounded-2xl md:rounded-3xl p-4 border border-gray-800 shadow-xl w-full max-w-[340px] aspect-[4/5] flex items-center justify-center overflow-hidden">
+                                    <img src="2.png" alt="BBpatrol 平台公告" class="w-full h-full object-contain rounded-xl">
+                                </div>
+                            </div>
+                            
+                            <!-- 圖卡 2 (請替換 src) -->
+                            <div class="snap-center shrink-0 w-full flex justify-center">
+                                <div class="bg-[#1a1921] rounded-2xl md:rounded-3xl p-4 border border-gray-800 shadow-xl w-full max-w-[340px] aspect-[4/5] flex items-center justify-center overflow-hidden">
+                                    <img src="3.png" alt="BBpatrol 地圖資訊" class="w-full h-full object-contain rounded-xl">
+                                </div>
+                            </div>
+                            
+                            <!-- 圖卡 3 (請替換 src) -->
+                            <div class="snap-center shrink-0 w-full flex justify-center">
+                                <div class="bg-[#1a1921] rounded-2xl md:rounded-3xl p-4 border border-gray-800 shadow-xl w-full max-w-[340px] aspect-[4/5] flex items-center justify-center overflow-hidden">
+                                    <img src="4.png" alt="BBpatrol 錄音回報" class="w-full h-full object-contain rounded-xl">
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <!-- 電腦版右切換按鈕 -->
+                        <button onclick="scrollSlide(1)" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 border border-gray-700 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition hidden md:flex hover:bg-brand-red">
+                            &rarr;
+                        </button>
+
+                        <!-- 下方導覽小圓點 (Dots) -->
+                        <div class="flex justify-center gap-2 mt-4">
+                            <span class="dot w-2.5 h-2.5 rounded-full bg-brand-red transition-all duration-300"></span>
+                            <span class="dot w-2.5 h-2.5 rounded-full bg-gray-600 transition-all duration-300"></span>
+                            <span class="dot w-2.5 h-2.5 rounded-full bg-gray-600 transition-all duration-300"></span>
                         </div>
                     </div>
-                    <div class="space-y-4 md:space-y-6">
-                        <h3 class="text-2xl md:text-4xl font-bold text-white flex items-baseline gap-4">
+
+                    <!-- 右側：教學文案說明 -->
+                    <div class="space-y-4 md:space-y-6 text-center lg:text-left">
+                        <h3 class="text-2xl md:text-4xl font-bold text-white flex items-baseline justify-center lg:justify-start gap-4">
                             <span class="text-brand-red font-black text-4xl md:text-6xl">1.</span> 懸浮測速
                         </h3>
-                        <p class="text-gray-400 text-sm md:text-lg leading-relaxed">
-                            BBpatrol 支援極簡懸浮視窗以及背景模式，無論切換至任何地圖軟體，皆可無負擔使用。
+                        <p class="text-gray-400 text-sm md:text-lg leading-relaxed px-2 sm:px-0">
+                            開車導航最怕被測速 APP 佔據畫面。BBpatrol 支援極簡懸浮視窗，無論切換至任何地圖軟體，即時車速與測速桿距離倒數依然清晰可見。
                         </p>
                     </div>
                 </div>
 
-                <!-- Step 2 -->
+                <!-- Step 2 (保留原本的多元回報介紹) -->
                 <div class="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
-                    <div class="order-2 lg:order-1 space-y-4 md:space-y-6">
-                        <h3 class="text-2xl md:text-4xl font-bold text-white flex items-baseline gap-4">
+                    <div class="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left">
+                        <h3 class="text-2xl md:text-4xl font-bold text-white flex items-baseline justify-center lg:justify-start gap-4">
                             <span class="text-brand-red font-black text-4xl md:text-6xl">2.</span> 即時回報
                         </h3>
-                        <p class="text-gray-400 text-sm md:text-lg leading-relaxed">
-                            遇到前方臨檢或移動式測速？只要一鍵點擊，支援「圖文回報」、「相機照相」與最安全的「錄音」回報，第一時間通知後方車友。
+                        <p class="text-gray-400 text-sm md:text-lg leading-relaxed px-2 sm:px-0">
+                            遇到前方事故或移動式測速？只要一鍵點擊，支援「圖文」、「相機照相」與最安全的「一分鐘錄音」回報，第一時間通知後方車友。
                         </p>
                     </div>
                     <div class="order-1 lg:order-2 bg-[#1a1921] rounded-2xl md:rounded-3xl p-6 border border-gray-800 shadow-xl aspect-video md:aspect-[4/3] flex items-center justify-center relative overflow-hidden group">
@@ -155,7 +195,7 @@
                     </div>
                 </div>
 
-                <!-- Step 3 -->
+                <!-- Step 3 (保留原本的語音包介紹) -->
                 <div class="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
                     <div class="bg-[#1a1921] rounded-2xl md:rounded-3xl p-6 border border-gray-800 shadow-xl aspect-video md:aspect-[4/3] flex items-center justify-center relative overflow-hidden group">
                         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
@@ -167,18 +207,50 @@
                             </div>
                         </div>
                     </div>
-                    <div class="space-y-4 md:space-y-6">
-                        <h3 class="text-2xl md:text-4xl font-bold text-white flex items-baseline gap-4">
-                            <span class="text-brand-red font-black text-4xl md:text-6xl">3.</span> 客製化音效
+                    <div class="space-y-4 md:space-y-6 text-center lg:text-left">
+                        <h3 class="text-2xl md:text-4xl font-bold text-white flex items-baseline justify-center lg:justify-start gap-4">
+                            <span class="text-brand-red font-black text-4xl md:text-6xl">3.</span> 專屬個性
                         </h3>
-                        <p class="text-gray-400 text-sm md:text-lg leading-relaxed">
-                            不想再聽死板的機器人聲音？你可以親自錄製或上傳提示音，套用熱門迷因音效，打造獨一無二的駕駛氛圍。
+                        <p class="text-gray-400 text-sm md:text-lg leading-relaxed px-2 sm:px-0">
+                            不想再聽死板的機器人聲音？你可以親自錄製提示音，或套用熱門迷因音效，並換上專屬語音包封面，打造獨一無二的駕駛氛圍。
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- 左右滑動控制 JS (請加在原有最下方的 <script> 中或是其上方) -->
+    <script>
+        const container = document.getElementById('slideContainer');
+        const dots = document.querySelectorAll('.dot');
+
+        // 監聽滾動事件，自動變更導覽小圓點的顏色
+        container.addEventListener('scroll', () => {
+            const width = container.clientWidth;
+            const scrollLeft = container.scrollLeft;
+            const activeIndex = Math.round(scrollLeft / width);
+            
+            dots.forEach((dot, index) => {
+                if (index === activeIndex) {
+                    dot.classList.remove('bg-gray-600');
+                    dot.classList.add('bg-brand-red');
+                } else {
+                    dot.classList.remove('bg-brand-red');
+                    dot.classList.add('bg-gray-600');
+                }
+            });
+        });
+
+        // 點擊按鈕切換 Slide
+        function scrollSlide(direction) {
+            const width = container.clientWidth;
+            container.scrollBy({
+                left: direction * width,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 
     <!-- 發光儀表板統計 (保留原本結構) -->
     <section id="app-stats" class="py-16 md:py-24 bg-[#0d0d12] border-t border-gray-900">
