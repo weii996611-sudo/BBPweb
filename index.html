@@ -79,7 +79,7 @@
                 </div>
             </div>
 
-            <!-- 右側手機 Mockup -->
+            <!-- 右側手機 Mockup (保留首頁立體感的互動式 Demo) -->
             <div class="relative flex justify-center lg:justify-end mt-8 lg:mt-0">
                 <div class="w-[240px] h-[500px] md:w-[280px] md:h-[580px] bg-[#1a1921] rounded-[35px] md:rounded-[40px] border-[6px] md:border-[8px] border-gray-800 phone-mockup relative overflow-hidden flex flex-col items-center justify-center transform scale-95 md:scale-100">
                     <div class="absolute top-0 w-24 md:w-32 h-5 md:h-6 bg-gray-800 rounded-b-xl md:rounded-b-2xl z-20"></div>
@@ -124,16 +124,16 @@
         </div>
     </section>
 
-    <!-- 2. 全新放大版互動式旗艦輪播區 (Tutorial Steps Showcase) -->
+    <!-- 2. 圖文教學與宣傳圖卡輪播區 -->
     <section id="tutorial" class="py-16 md:py-28 bg-[#121216] border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 md:px-6">
             <div class="text-center mb-12 md:mb-20">
-                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">不到 1 分鐘，開啟安全旅程</h2>
-                <p class="text-gray-400 text-sm md:text-base">超直覺介面，立刻掌握 BBpatrol 的強大功能</p>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">一分鐘掌握 BBpatrol</h2>
+                <p class="text-gray-400 text-sm md:text-base">左右滑動瀏覽精美功能介紹</p>
             </div>
 
             <!-- 主輪播大卡片容器 -->
-            <div class="relative max-w-6xl mx-auto">
+            <div class="relative max-w-5xl mx-auto">
                 
                 <!-- 左右切換按鈕 (僅在電腦端懸浮顯示) -->
                 <button onclick="prevShowcase()" class="absolute -left-16 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-gray-900/80 border border-gray-700 text-white flex items-center justify-center opacity-0 hover:opacity-100 lg:opacity-100 transition hover:bg-brand-red shadow-lg">
@@ -143,86 +143,34 @@
                     &rarr;
                 </button>
 
-                <!-- 滾動卡片區 -->
+                <!-- 滾動卡片區：現在完全移除手機殼代碼與文字欄，專注於大圖卡 -->
                 <div id="showcaseWrapper" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth hide-scrollbar gap-8 py-4">
                     
-                    <!-- 卡片 1：懸浮測速 (請把 src 改成你上傳到 GitHub 的對應檔名，例如 card1.png) -->
+                    <!-- 卡片 1：請將 card1.png 替換成你的第一張圖卡 -->
                     <div class="snap-center shrink-0 w-full flex justify-center">
-                        <div class="bg-[#1a1921] border border-gray-800 rounded-3xl p-6 md:p-12 w-full max-w-4xl grid md:grid-cols-12 gap-8 md:gap-12 items-center shadow-2xl">
-                            
-                            <!-- 左側/上方：大尺寸 iPhone 外框 + APP 畫面 -->
-                            <div class="md:col-span-6 flex justify-center">
-                                <div class="w-[280px] h-[560px] md:w-[320px] md:h-[640px] bg-[#0c0c0e] rounded-[45px] border-[10px] border-gray-800 relative overflow-hidden flex flex-col items-center justify-center phone-mockup">
-                                    <div class="absolute top-0 w-32 h-6 bg-gray-800 rounded-b-2xl z-20"></div>
-                                    <img src="2.png" alt="懸浮測速" class="w-full h-full object-cover rounded-[35px]">
-                                </div>
-                            </div>
-                            
-                            <!-- 右側/下方：大型文字簡介 -->
-                            <div class="md:col-span-6 space-y-6 text-center md:text-left">
-                                <div class="text-brand-red font-black text-6xl md:text-8xl">01</div>
-                                <h3 class="text-2xl md:text-4xl font-bold text-white">導航時也能看回報</h3>
-                                <p class="text-gray-400 text-sm md:text-lg leading-relaxed">
-                                    開車導航最怕被測速 APP 佔據畫面。BBpatrol 支援極簡懸浮視窗，無論切換至任何地圖軟體，即時車速與測速桿距離倒數依然清晰可見，並隨時於螢幕下方透出最新回報！
-                                </p>
-                            </div>
+                        <div class="bg-transparent rounded-3xl overflow-hidden w-full max-w-4xl shadow-2xl flex justify-center items-center">
+                            <img src="card1.png" alt="BBpatrol 智慧懸浮" class="w-full h-auto max-h-[720px] object-contain rounded-2xl">
                         </div>
                     </div>
 
-                    <!-- 卡片 2：平台公告 -->
+                    <!-- 卡片 2：請將 card2.png 替換成你的第二張圖卡 -->
                     <div class="snap-center shrink-0 w-full flex justify-center">
-                        <div class="bg-[#1a1921] border border-gray-800 rounded-3xl p-6 md:p-12 w-full max-w-4xl grid md:grid-cols-12 gap-8 md:gap-12 items-center shadow-2xl">
-                            <div class="md:col-span-6 flex justify-center">
-                                <div class="w-[280px] h-[560px] md:w-[320px] md:h-[640px] bg-[#0c0c0e] rounded-[45px] border-[10px] border-gray-800 relative overflow-hidden flex flex-col items-center justify-center phone-mockup">
-                                    <div class="absolute top-0 w-32 h-6 bg-gray-800 rounded-b-2xl z-20"></div>
-                                    <img src="3.png" alt="提供即時道路資訊" class="w-full h-full object-cover rounded-[35px]">
-                                </div>
-                            </div>
-                            <div class="md:col-span-6 space-y-6 text-center md:text-left">
-                                <div class="text-brand-red font-black text-6xl md:text-8xl">02</div>
-                                <h3 class="text-2xl md:text-4xl font-bold text-white">提供即時道路資訊</h3>
-                                <p class="text-gray-400 text-sm md:text-lg leading-relaxed">
-                                    隨時查看最新公告。無論是國道疏導、突發路段管制，還是車友剛剛上傳的臨時檢照點位置，資訊一覽無遺，讓每位車主提前做好行車規劃。
-                                </p>
-                            </div>
+                        <div class="bg-transparent rounded-3xl overflow-hidden w-full max-w-4xl shadow-2xl flex justify-center items-center">
+                            <img src="card2.png" alt="BBpatrol 多元回報" class="w-full h-auto max-h-[720px] object-contain rounded-2xl">
                         </div>
                     </div>
 
-                    <!-- 卡片 3：車友即時收到通知 -->
+                    <!-- 卡片 3：請將 card3.png 替換成你的第三張圖卡 -->
                     <div class="snap-center shrink-0 w-full flex justify-center">
-                        <div class="bg-[#1a1921] border border-gray-800 rounded-3xl p-6 md:p-12 w-full max-w-4xl grid md:grid-cols-12 gap-8 md:gap-12 items-center shadow-2xl">
-                            <div class="md:col-span-6 flex justify-center">
-                                <div class="w-[280px] h-[560px] md:w-[320px] md:h-[640px] bg-[#0c0c0e] rounded-[45px] border-[10px] border-gray-800 relative overflow-hidden flex flex-col items-center justify-center phone-mockup">
-                                    <div class="absolute top-0 w-32 h-6 bg-gray-800 rounded-b-2xl z-20"></div>
-                                    <img src="4.png" alt="協助現場狀況更新" class="w-full h-full object-cover rounded-[35px]">
-                                </div>
-                            </div>
-                            <div class="md:col-span-6 space-y-6 text-center md:text-left">
-                                <div class="text-brand-red font-black text-6xl md:text-8xl">03</div>
-                                <h3 class="text-2xl md:text-4xl font-bold text-white">車友即時收到通知</h3>
-                                <p class="text-gray-400 text-sm md:text-lg leading-relaxed">
-                                    遇到突發狀況一鍵回報！支援「現場拍照上傳」與「快速語音回報」。當你完成回報，全平台的駕駛人將會立即收到通知，共同更新、確認最真實的现场動態。
-                                </p>
-                            </div>
+                        <div class="bg-transparent rounded-3xl overflow-hidden w-full max-w-4xl shadow-2xl flex justify-center items-center">
+                            <img src="card3.png" alt="BBpatrol 即時通知" class="w-full h-auto max-h-[720px] object-contain rounded-2xl">
                         </div>
                     </div>
 
-                    <!-- 卡片 4：專屬語音包 -->
+                    <!-- 卡片 4：請將 card4.png 替換成你的第四張圖卡 -->
                     <div class="snap-center shrink-0 w-full flex justify-center">
-                        <div class="bg-[#1a1921] border border-gray-800 rounded-3xl p-6 md:p-12 w-full max-w-4xl grid md:grid-cols-12 gap-8 md:gap-12 items-center shadow-2xl">
-                            <div class="md:col-span-6 flex justify-center">
-                                <div class="w-[280px] h-[560px] md:w-[320px] md:h-[640px] bg-[#0c0c0e] rounded-[45px] border-[10px] border-gray-800 relative overflow-hidden flex flex-col items-center justify-center phone-mockup">
-                                    <div class="absolute top-0 w-32 h-6 bg-gray-800 rounded-b-2xl z-20"></div>
-                                    <img src="card4.png" alt="打造專屬語音" class="w-full h-full object-cover rounded-[35px]">
-                                </div>
-                            </div>
-                            <div class="md:col-span-6 space-y-6 text-center md:text-left">
-                                <div class="text-brand-red font-black text-6xl md:text-8xl">04</div>
-                                <h3 class="text-2xl md:text-4xl font-bold text-white">打造專屬個性語音</h3>
-                                <p class="text-gray-400 text-sm md:text-lg leading-relaxed">
-                                    聽膩了系統死板的提示語音？在這裡可以輕鬆搜尋、收藏，甚至是自己錄製與上傳語音。套用超有創意的提示音，讓開車過程笑聲不斷、絕不枯燥！
-                                </p>
-                            </div>
+                        <div class="bg-transparent rounded-3xl overflow-hidden w-full max-w-4xl shadow-2xl flex justify-center items-center">
+                            <img src="card4.png" alt="BBpatrol 專屬語音" class="w-full h-auto max-h-[720px] object-contain rounded-2xl">
                         </div>
                     </div>
 
@@ -239,7 +187,7 @@
         </div>
     </section>
 
-    <!-- 發光儀表板統計 (Stats Section) -->
+    <!-- 發光儀表板統計 -->
     <section id="app-stats" class="py-16 md:py-24 bg-[#0d0d12] border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 md:px-6 text-center">
             <h2 class="text-2xl sm:text-3xl lg:text-5xl font-black text-white mb-3 md:mb-4">強大社群，數據會說話</h2>
@@ -269,7 +217,6 @@
                     </div>
                     <h4 class="mt-8 md:mt-10 text-lg md:text-xl font-bold text-white">活躍駕駛人數</h4>
                 </div>
-
                 <!-- 儀表板 2 -->
                 <div class="flex flex-col items-center group">
                     <div class="relative w-48 h-28 md:w-56 md:h-32">
@@ -287,7 +234,6 @@
                     </div>
                     <h4 class="mt-8 md:mt-10 text-lg md:text-xl font-bold text-white">每月即時回報數</h4>
                 </div>
-
                 <!-- 儀表板 3 -->
                 <div class="flex flex-col items-center group">
                     <div class="relative w-48 h-28 md:w-56 md:h-32">
@@ -310,7 +256,7 @@
         </div>
     </section>
 
-    <!-- 3. 全新網格化評論區 (Review Grid) -->
+    <!-- 3. 網格化評論區 -->
     <section id="reviews" class="py-16 md:py-24 bg-[#121216] border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 md:px-6">
             <div class="text-center mb-12 md:mb-16">
@@ -451,9 +397,8 @@
         </div>
     </footer>
 
-    <!-- 輪播邏輯與儀表板動畫腳本 -->
+    <!-- 輪播與數據動畫腳本 -->
     <script>
-        // 1. 互動式輪播邏輯
         const showcaseWrapper = document.getElementById('showcaseWrapper');
         const showcaseDots = document.querySelectorAll('.showcase-dot');
 
@@ -481,7 +426,6 @@
             showcaseWrapper.scrollBy({ left: showcaseWrapper.clientWidth, behavior: 'smooth' });
         }
 
-        // 2. 社群數據動畫
         document.addEventListener("DOMContentLoaded", () => {
             const section = document.querySelector('#app-stats');
             const counters = document.querySelectorAll('.counter');
