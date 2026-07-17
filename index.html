@@ -199,8 +199,8 @@
         <div class="bg-[#0d0d12] py-20 border-y border-gray-900">
             <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-12 gap-8 md:gap-16 items-center">
                 
-                <!-- 左側：3張圖卡左右滑動牆 (使用自訂箭頭圖片) -->
-                <div class="lg:col-span-7 lg:order-1 relative group w-full">
+                <!-- 【圖卡區塊】加上 order-2：手機版排在下；lg:order-1 保持桌機版在左 -->
+                <div class="order-2 lg:order-1 lg:col-span-7 relative group w-full">
                     <button onclick="scrollSlider('reportSlider', -1)" class="absolute -left-12 top-1/2 -translate-y-1/2 z-30 w-10 h-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 hidden md:flex hover:scale-110">
                         <img src="left-arrow.png" alt="上一張" class="w-full h-full object-contain">
                     </button>
@@ -218,15 +218,16 @@
                         <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
                     </div>
                 </div>
-
-                <!-- 右側：文字介紹 -->
-                <div class="lg:col-span-5 lg:order-2 space-y-6 text-center lg:text-left">
+        
+                <!-- 【文字區塊】加上 order-1：手機版排在上；lg:order-2 保持桌機版在右 -->
+                <div class="order-1 lg:order-2 lg:col-span-5 space-y-6 text-center lg:text-left">
                     <div class="text-brand-red font-serif text-2xl tracking-widest font-bold text-center lg:text-left">/ 02</div>
                     <h2 class="text-3xl md:text-5xl font-black text-white leading-tight">如何回報</h2>
                     <p class="text-gray-400 text-sm md:text-lg leading-relaxed">
                         發現前方有移動式黑箱、三眼雷射槍、或是臨時突發路況？動動手指拍照上傳、或者直接利用最安全的安全免打字錄音回報，全台車友即時與你連線。
                     </p>
                 </div>
+                
             </div>
         </div>
 
