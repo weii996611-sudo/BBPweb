@@ -459,67 +459,71 @@
     <!-- 清爽版 Footer -->
     <footer id="download" class="bg-[#121216] pt-16 pb-8 border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-6 mb-12">
-            <div class="md:col-span-4 space-y-4">
+            
+            <!-- 區塊 1：品牌與社群 (手機版排第 1，桌機版排第 1) -->
+            <div class="order-1 md:order-1 md:col-span-4 space-y-4">
                 <div class="flex items-center gap-2 mb-6">
-                    <!-- 替換成你的 Logo 圖片 -->
-                    <img src="LOGO1.png" alt="BBpatrol Logo" class="w-10 h-10 object-contain rounded-lg">
-                    
-                    <span class="text-xl font-bold tracking-widest text-white">BBpatrol黑箱糾察隊</span>
+                    <img src="LOGO1.png" alt="BBpatrol Logo" class="w-8 h-8 object-contain rounded-lg">
+                    <span class="text-xl font-bold tracking-widest text-white">BBpatrol</span>
                 </div>
                 <p class="text-gray-400 text-sm leading-relaxed">
-                    一人回報，萬人受惠。<br>加入全台最大的互助駕駛社群。
+                    智慧測速，安全同行。<br>加入全台最大的互助駕駛社群。
                 </p>
-                <p class="text-gray-400 text-sm mt-2">Email: weishuo@bbpatrol.com.tw</p>
+                <p class="text-gray-400 text-sm mt-2">Email: service@bbpatrol.com.tw</p>
                 <div class="flex gap-4 pt-4">
                     <!-- Facebook -->
                     <a href="https://www.facebook.com/profile.php?id=61577787920069" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all duration-300">
                         <img src="facebook.png" alt="BBpatrol Facebook" class="w-full h-full object-contain">
                     </a>
-                    
                     <!-- Instagram -->
                     <a href="https://www.instagram.com/bbpatrol.tw/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all duration-300">
                         <img src="instagram.png" alt="BBpatrol Instagram" class="w-full h-full object-contain">
                     </a>
-                    
                     <!-- Threads -->
                     <a href="https://www.threads.com/@bbpatrol.tw?xmt=AQG0wyQuBokbQv6PndQIaAmClPBKYTBOPL536py9IvwfjIYjN4GotcGjEuiCFOSl7iUE5v5h" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all duration-300">
-                        <img src="threads.png" alt="BBpatrol Threads" class="w-full h-full object-contain">
+                        <img src="Threads.png" alt="BBpatrol Threads" class="w-full h-full object-contain">
                     </a>
-                
                     <!-- LINE -->
                     <a href="https://lin.ee/7Gi34hZ" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all duration-300">
                         <img src="line.png" alt="BBpatrol LINE" class="w-full h-full object-contain">
                     </a>
                 </div>
             </div>
-            <div class="md:col-span-2 md:col-start-6 space-y-3 text-sm">
+    
+            <!-- 區塊 2：下載 APP (手機版排第 2，桌機版排第 4) -->
+            <div class="order-2 md:order-4 md:col-span-3 space-y-4">
+                <h5 class="text-white font-bold mb-4 text-center md:text-left">立即下載 APP</h5>
+                <!-- 將 flex-col 改為 flex-row 讓圖片並排，並設定置中對齊 -->
+                <div class="flex flex-row justify-center md:justify-start gap-4">
+                    <!-- 將尺寸從 180px 大幅縮小為 w-14 h-14 或 w-16 h-16 -->
+                    <a href="https://apps.apple.com/tw/app/bbpatrol%E9%BB%91%E7%AE%B1%E7%B3%BE%E5%AF%9F%E9%9A%8A/id6746429798" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 hover:scale-110 transition-all duration-300 w-14 h-14 md:w-16 md:h-16 block">
+                        <img src="ios.png" alt="Download on the App Store" class="w-full h-full object-contain">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.timer_swift&pli=1" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 hover:scale-110 transition-all duration-300 w-14 h-14 md:w-16 md:h-16 block">
+                        <img src="google-play.png" alt="GET IT ON Google Play" class="w-full h-full object-contain">
+                    </a>
+                </div>
+            </div>
+    
+            <!-- 區塊 3：功能導覽 (手機版排第 3，桌機版排第 2) -->
+            <div class="order-3 md:order-2 md:col-span-2 md:col-start-6 space-y-3 text-sm text-center md:text-left">
                 <h5 class="text-white font-bold mb-4">功能導覽</h5>
                 <a href="#tutorial" class="block text-gray-500 hover:text-white transition">功能教學</a>
                 <a href="#app-stats" class="block text-gray-500 hover:text-white transition">社群數據</a>
                 <a href="#reviews" class="block text-gray-500 hover:text-white transition">車友評價</a>
                 <a href="#pricing" class="block text-gray-500 hover:text-white transition">訂閱方案</a>
             </div>
-            <div class="md:col-span-2 space-y-3 text-sm">
+            
+            <!-- 區塊 4：關於我們 (手機版排第 4，桌機版排第 3) -->
+            <div class="order-4 md:order-3 md:col-span-2 space-y-3 text-sm text-center md:text-left">
                 <h5 class="text-white font-bold mb-4">關於我們</h5>
                 <a href="#" class="block text-gray-500 hover:text-white transition">隱私權政策</a>
                 <a href="#" class="block text-gray-500 hover:text-white transition">服務條款</a>
                 <a href="#" class="block text-gray-500 hover:text-white transition">常見問題 FAQ</a>
             </div>
-            <div class="md:col-span-3 space-y-4">
-                <h5 class="text-white font-bold mb-4 text-center md:text-left">立即下載 APP</h5>
-                <div class="flex flex-col gap-3 items-center md:items-start">
-                    <!-- App Store 下載按鈕 (ios.png) -->
-                    <a href="https://apps.apple.com/tw/app/bbpatrol%E9%BB%91%E7%AE%B1%E7%B3%BE%E5%AF%9F%E9%9A%8A/id6746429798" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 hover:scale-105 transition-all duration-300 w-[180px]">
-                        <img src="ios.png" alt="Download on the App Store" class="w-full h-auto object-contain">
-                    </a>
-                    
-                    <!-- Google Play 下載按鈕 (google-play.png) -->
-                    <a href="https://play.google.com/store/apps/details?id=com.timer_swift&pli=1" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 hover:scale-105 transition-all duration-300 w-[180px]">
-                        <img src="google-play.png" alt="GET IT ON Google Play" class="w-full h-auto object-contain">
-                    </a>
-                </div>
-            </div>
+    
         </div>
+        
         <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-gray-800 text-center md:text-right text-xs text-gray-600">
             © 2026 BBpatrol. Powered and secured by Github Pages.
         </div>
