@@ -128,7 +128,7 @@
     <section id="tutorial" class="py-16 md:py-28 bg-[#121216] border-t border-gray-900 space-y-24 md:space-y-40">
         <div class="max-w-7xl mx-auto px-4 md:px-6">
 
-            <!-- 核心大標題 1：APP特色 (左文右圖 - 優化為條列式) -->
+            <!-- 核心大標題 1：APP特色 (左文右圖) -->
             <div class="grid lg:grid-cols-12 gap-8 md:gap-16 items-center">
                 <div class="lg:col-span-5 space-y-6 flex flex-col justify-center">
                     <div class="text-brand-red font-serif text-sm tracking-widest font-bold text-center lg:text-left">/ 01</div>
@@ -151,15 +151,19 @@
                     </ul>
                 </div>
                 
-                <!-- 右側：3張圖卡左右滑動牆 -->
+                <!-- 右側：3張圖卡左右滑動牆 (使用自訂箭頭圖片) -->
                 <div class="lg:col-span-7 relative group w-full">
-                    <button onclick="scrollSlider('featureSlider', -1)" class="absolute -left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/70 border border-gray-700 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition hidden md:flex hover:bg-brand-red">&larr;</button>
+                    <button onclick="scrollSlider('featureSlider', -1)" class="absolute -left-12 top-1/2 -translate-y-1/2 z-30 w-10 h-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 hidden md:flex hover:scale-110">
+                        <img src="left-arrow.png" alt="上一張" class="w-full h-full object-contain">
+                    </button>
                     <div id="featureSlider" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth hide-scrollbar gap-6 py-4">
                         <div class="snap-center shrink-0 w-full flex justify-center"><img src="2.png" alt="特色一" class="w-full max-w-[420px] h-auto object-contain rounded-2xl shadow-2xl"></div>
                         <div class="snap-center shrink-0 w-full flex justify-center"><img src="3.png" alt="特色二" class="w-full max-w-[420px] h-auto object-contain rounded-2xl shadow-2xl"></div>
                         <div class="snap-center shrink-0 w-full flex justify-center"><img src="4.png" alt="特色三" class="w-full max-w-[420px] h-auto object-contain rounded-2xl shadow-2xl"></div>
                     </div>
-                    <button onclick="scrollSlider('featureSlider', 1)" class="absolute -right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/70 border border-gray-700 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition hidden md:flex hover:bg-brand-red">&rarr;</button>
+                    <button onclick="scrollSlider('featureSlider', 1)" class="absolute -right-12 top-1/2 -translate-y-1/2 z-30 w-10 h-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 hidden md:flex hover:scale-110">
+                        <img src="right-arrow.png" alt="下一張" class="w-full h-full object-contain">
+                    </button>
                     <!-- 小圓點 -->
                     <div class="flex justify-center gap-2 mt-4" id="featureDots">
                         <span class="w-2.5 h-2.5 rounded-full bg-brand-red"></span>
@@ -175,15 +179,19 @@
         <div class="bg-[#0d0d12] py-20 border-y border-gray-900">
             <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-12 gap-8 md:gap-16 items-center">
                 
-                <!-- 左側：3張圖卡左右滑動牆 -->
+                <!-- 左側：3張圖卡左右滑動牆 (使用自訂箭頭圖片) -->
                 <div class="lg:col-span-7 lg:order-1 relative group w-full">
-                    <button onclick="scrollSlider('reportSlider', -1)" class="absolute -left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/70 border border-gray-700 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition hidden md:flex hover:bg-brand-red">&larr;</button>
+                    <button onclick="scrollSlider('reportSlider', -1)" class="absolute -left-12 top-1/2 -translate-y-1/2 z-30 w-10 h-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 hidden md:flex hover:scale-110">
+                        <img src="left-arrow.png" alt="上一張" class="w-full h-full object-contain">
+                    </button>
                     <div id="reportSlider" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth hide-scrollbar gap-6 py-4">
                         <div class="snap-center shrink-0 w-full flex justify-center"><img src="5.png" alt="回報一" class="w-full max-w-[420px] h-auto object-contain rounded-2xl shadow-2xl"></div>
                         <div class="snap-center shrink-0 w-full flex justify-center"><img src="6.png" alt="回報二" class="w-full max-w-[420px] h-auto object-contain rounded-2xl shadow-2xl"></div>
                         <div class="snap-center shrink-0 w-full flex justify-center"><img src="7.png" alt="回報三" class="w-full max-w-[420px] h-auto object-contain rounded-2xl shadow-2xl"></div>
                     </div>
-                    <button onclick="scrollSlider('reportSlider', 1)" class="absolute -right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/70 border border-gray-700 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition hidden md:flex hover:bg-brand-red">&rarr;</button>
+                    <button onclick="scrollSlider('reportSlider', 1)" class="absolute -right-12 top-1/2 -translate-y-1/2 z-30 w-10 h-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 hidden md:flex hover:scale-110">
+                        <img src="right-arrow.png" alt="下一張" class="w-full h-full object-contain">
+                    </button>
                     <div class="flex justify-center gap-2 mt-4" id="reportDots">
                         <span class="w-2.5 h-2.5 rounded-full bg-brand-red"></span>
                         <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
@@ -213,15 +221,19 @@
                     </p>
                 </div>
                 
-                <!-- 右側：3張圖卡左右滑動牆 -->
+                <!-- 右側：3張圖卡左右滑動牆 (使用自訂箭頭圖片) -->
                 <div class="lg:col-span-7 relative group w-full">
-                    <button onclick="scrollSlider('audioSlider', -1)" class="absolute -left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/70 border border-gray-700 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition hidden md:flex hover:bg-brand-red">&larr;</button>
+                    <button onclick="scrollSlider('audioSlider', -1)" class="absolute -left-12 top-1/2 -translate-y-1/2 z-30 w-10 h-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 hidden md:flex hover:scale-110">
+                        <img src="left-arrow.png" alt="上一張" class="w-full h-full object-contain">
+                    </button>
                     <div id="audioSlider" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth hide-scrollbar gap-6 py-4">
                         <div class="snap-center shrink-0 w-full flex justify-center"><img src="8.png" alt="音效一" class="w-full max-w-[420px] h-auto object-contain rounded-2xl shadow-2xl"></div>
                         <div class="snap-center shrink-0 w-full flex justify-center"><img src="9.png" alt="音效二" class="w-full max-w-[420px] h-auto object-contain rounded-2xl shadow-2xl"></div>
                         <div class="snap-center shrink-0 w-full flex justify-center"><img src="10.png" alt="音效三" class="w-full max-w-[420px] h-auto object-contain rounded-2xl shadow-2xl"></div>
                     </div>
-                    <button onclick="scrollSlider('audioSlider', 1)" class="absolute -right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/70 border border-gray-700 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition hidden md:flex hover:bg-brand-red">&rarr;</button>
+                    <button onclick="scrollSlider('audioSlider', 1)" class="absolute -right-12 top-1/2 -translate-y-1/2 z-30 w-10 h-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 hidden md:flex hover:scale-110">
+                        <img src="right-arrow.png" alt="下一張" class="w-full h-full object-contain">
+                    </button>
                     <div class="flex justify-center gap-2 mt-4" id="audioDots">
                         <span class="w-2.5 h-2.5 rounded-full bg-brand-red"></span>
                         <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
