@@ -48,7 +48,7 @@
                 </div>
                 <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.15]">
                     告別罰單<br>
-                    <span class="text-brand-red">享受駕駛。</span>
+                    <span class="text-brand-red">享受駕駛</span>
                 </h1>
                 <p class="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-sm sm:max-w-md md:max-w-lg mx-auto lg:mx-0">
                     不只是測速照相提醒。BBpatrol 結合即時路況圖文回報、極簡懸浮視窗與客製化語音，讓每趟旅途都安全又充滿樂趣。
@@ -128,23 +128,33 @@
     <section id="tutorial" class="py-16 md:py-28 bg-[#121216] border-t border-gray-900 space-y-24 md:space-y-40">
         <div class="max-w-7xl mx-auto px-4 md:px-6">
 
-            <!-- 核心大標題 1：APP特色 (左文右圖) -->
+            <!-- 核心大標題 1：APP特色 (左文右圖 - 優化為條列式) -->
             <div class="grid lg:grid-cols-12 gap-8 md:gap-16 items-center">
-                <div class="lg:col-span-5 space-y-6 text-center lg:text-left">
-                    <div class="text-brand-red font-serif text-sm tracking-widest font-bold">/ 01</div>
-                    <h2 class="text-3xl md:text-5xl font-black text-white leading-tight">APP優勢</h2>
-                    <p class="text-gray-400 text-sm md:text-lg leading-relaxed">
-                        提供當日即時資訊-黑箱、雷射槍、臨檢、環保局稽查、噪音偵測
-                        懸浮模式-IOS系統也能使用，適用所有地圖工具
-                        一鍵回報通知所有使用者-即時收到走在你前面的駕駛提供的路況
-                    </p>
+                <div class="lg:col-span-5 space-y-6 flex flex-col justify-center">
+                    <div class="text-brand-red font-serif text-sm tracking-widest font-bold text-center lg:text-left">/ 01</div>
+                    <h2 class="text-3xl md:text-5xl font-black text-white leading-tight text-center lg:text-left">APP獨家優勢</h2>
+                    
+                    <!-- 條列式排版 -->
+                    <ul class="space-y-4 text-gray-400 text-sm md:text-lg leading-relaxed text-left max-w-md mx-auto lg:mx-0">
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-red mt-1 flex-shrink-0">●</span>
+                            <span><strong>提供當日即時資訊</strong>：黑箱、雷射槍、臨檢、環保局稽查、噪音偵測。</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-red mt-1 flex-shrink-0">●</span>
+                            <span><strong>懸浮模式</strong>：iOS 系統也能使用，完美適用所有地圖導航工具。</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-red mt-1 flex-shrink-0">●</span>
+                            <span><strong>一鍵回報通知所有使用者</strong>：即時收到走在你前面的駕駛所提供的最新路況。</span>
+                        </li>
+                    </ul>
                 </div>
                 
                 <!-- 右側：3張圖卡左右滑動牆 -->
                 <div class="lg:col-span-7 relative group w-full">
                     <button onclick="scrollSlider('featureSlider', -1)" class="absolute -left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/70 border border-gray-700 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition hidden md:flex hover:bg-brand-red">&larr;</button>
                     <div id="featureSlider" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth hide-scrollbar gap-6 py-4">
-                        <!-- 圖卡 1 (請替換為你放在 github 的檔名) -->
                         <div class="snap-center shrink-0 w-full flex justify-center"><img src="2.png" alt="特色一" class="w-full max-w-[420px] h-auto object-contain rounded-2xl shadow-2xl"></div>
                         <div class="snap-center shrink-0 w-full flex justify-center"><img src="3.png" alt="特色二" class="w-full max-w-[420px] h-auto object-contain rounded-2xl shadow-2xl"></div>
                         <div class="snap-center shrink-0 w-full flex justify-center"><img src="4.png" alt="特色三" class="w-full max-w-[420px] h-auto object-contain rounded-2xl shadow-2xl"></div>
@@ -186,7 +196,7 @@
                     <div class="text-brand-red font-serif text-sm tracking-widest font-bold">/ 02</div>
                     <h2 class="text-3xl md:text-5xl font-black text-white leading-tight">如何回報</h2>
                     <p class="text-gray-400 text-sm md:text-lg leading-relaxed">
-                        發現前方有移動式黑箱、三眼雷射槍、或是臨時突發路況？動動手指拍照上傳、或者直接利用最安全的安全免打字一分鐘錄音回報，全台車友即時與你連線。
+                        發現前方有移動式黑箱、三眼雷射槍、或是臨時突發路況？動動手指拍照上傳、或者直接利用最安全的安全免打字錄音回報，全台車友即時與你連線。
                     </p>
                 </div>
             </div>
@@ -199,7 +209,7 @@
                     <div class="text-brand-red font-serif text-sm tracking-widest font-bold">/ 03</div>
                     <h2 class="text-3xl md:text-5xl font-black text-white leading-tight">多樣化音效</h2>
                     <p class="text-gray-400 text-sm md:text-lg leading-relaxed">
-                        每天開車通勤，提示音總是那幾句死板板的機器音？在這裡您可以隨心所欲下載最有人氣的趣味迷因音效，甚至是親自為車友、為自己錄製一組專屬的開車導航語音包！
+                        每天開車通勤，提示音總是那幾句死板板的機器音？在這裡您可以隨心所欲套用最有人氣的趣味迷因音效，甚至是親自為車友、為自己錄製一組專屬的開車導航音效!
                     </p>
                 </div>
                 
@@ -434,7 +444,7 @@
 
     <!-- 核心互動邏輯與數據動畫腳本 -->
     <script>
-        // 1. 三組輪播牆控制邏輯 (支援自動監聽圓點顏色切換)
+        // 1. 三組輪播牆控制邏輯
         function initSlider(sliderId, dotsId) {
             const slider = document.getElementById(sliderId);
             const dots = document.getElementById(dotsId).querySelectorAll('span');
@@ -456,12 +466,10 @@
             });
         }
 
-        // 初始化三組滑動牆
         initSlider('featureSlider', 'featureDots');
         initSlider('reportSlider', 'reportDots');
         initSlider('audioSlider', 'audioDots');
 
-        // 按鈕點擊切換函式
         function scrollSlider(sliderId, direction) {
             const slider = document.getElementById(sliderId);
             slider.scrollBy({ left: direction * slider.clientWidth, behavior: 'smooth' });
