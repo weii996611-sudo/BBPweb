@@ -40,9 +40,12 @@
     <header class="relative pt-24 pb-16 md:pt-32 md:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-red-600/10 rounded-full blur-[100px] pointer-events-none"></div>
         
-        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center relative z-10">
+        <!-- 這裡將 lg:grid-cols-2 改為 md:grid-cols-2 -->
+        <div class="max-w-7xl mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-10 lg:gap-12 items-center relative z-10">
+            
             <!-- 左側文案 -->
-            <div class="space-y-6 md:space-y-8 text-center lg:text-left">
+            <!-- 這裡將 lg:text-left 改為 md:text-left -->
+            <div class="space-y-6 md:space-y-8 text-center md:text-left">
                 <div class="inline-block bg-gray-900 border border-gray-700 text-brand-red text-[10px] md:text-xs px-3 py-1 rounded-full font-semibold tracking-wider">
                     iOS/Android APP正式上架
                 </div>
@@ -50,10 +53,13 @@
                     告別罰單<br>
                     <span class="text-brand-red">享受駕駛</span>
                 </h1>
-                <p class="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-sm sm:max-w-md md:max-w-lg mx-auto lg:mx-0">
+                <!-- 這裡將 lg:mx-0 改為 md:mx-0 -->
+                <p class="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-sm sm:max-w-md md:max-w-lg mx-auto md:mx-0">
                     不只是測速照相提醒。BBpatrol 結合即時路況圖文回報、極簡懸浮視窗與客製化語音，讓每趟旅途都安全又充滿樂趣。
                 </p>
-                <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start pt-2 px-4 sm:px-0">
+                
+                <!-- 這裡將 lg:justify-start 改為 md:justify-start -->
+                <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start pt-2 px-4 sm:px-0">
                     <a href="https://apps.apple.com/tw/app/bbpatrol%E9%BB%91%E7%AE%B1%E7%B3%BE%E5%AF%9F%E9%9A%8A/id6746429798" target="_blank" rel="noopener noreferrer" class="bg-brand-red text-white w-full sm:w-auto px-6 py-3.5 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-lg hover:bg-red-700 transition flex items-center justify-center gap-2">
                         <span>Apple Store 下載</span>
                     </a>
@@ -61,11 +67,14 @@
                         <span>Google Play 下載</span>
                     </a>
                 </div>
-
+    
                 <!-- 價值展示 (精準 4.3 星與亮白字體優化) -->
-                <div class="pt-6 md:pt-10 flex flex-wrap justify-center lg:justify-start gap-8 md:gap-12 opacity-90">
+                <!-- 這裡將 lg:justify-start 改為 md:justify-start -->
+                <div class="pt-6 md:pt-10 flex flex-wrap justify-center md:justify-start gap-8 md:gap-12 opacity-90">
+                    
                     <!-- 4.3 顆星區塊 -->
-                    <div class="flex flex-col items-center lg:items-start">
+                    <!-- 這裡將 lg:items-start 改為 md:items-start -->
+                    <div class="flex flex-col items-center md:items-start">
                         <div class="flex items-center gap-0.5 mb-1">
                             <!-- 滿星 1 -->
                             <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -75,12 +84,12 @@
                             <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                             <!-- 滿星 4 -->
                             <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <!-- 4.3 星 (精準裁切 30% 灰色、70% 金黃色) -->
+                            <!-- 4.3 星 (精準裁切 40% 金黃色，我已將這裡的寬度設定為 40%) -->
                             <div class="relative w-4 h-4 text-gray-700">
                                 <!-- 底圖：灰色星星 -->
                                 <svg class="absolute w-full h-full text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                 
-                                <!-- 上層：黃色星星 (在這裡將 w-[30%] 改成了 w-[40%]) -->
+                                <!-- 上層：黃色星星 -->
                                 <div class="absolute top-0 left-0 h-full overflow-hidden w-[40%]">
                                     <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                 </div>
@@ -88,22 +97,26 @@
                         </div>
                         <div class="text-xs md:text-sm font-bold text-gray-300">4.3 / 5 好評</div>
                     </div>
-
+    
                     <!-- 下載量區塊 -->
-                    <div class="flex flex-col items-center lg:items-start">
+                    <!-- 這裡將 lg:items-start 改為 md:items-start -->
+                    <div class="flex flex-col items-center md:items-start">
                         <div class="text-white font-black text-2xl md:text-3xl mb-1 tracking-wide">20,000+</div>
                         <div class="text-xs md:text-sm text-gray-400 font-medium">活躍車主下載</div>
                     </div>
-
+    
                     <!-- 排名區塊 -->
-                    <div class="flex flex-col items-center lg:items-start">
+                    <!-- 這裡將 lg:items-start 改為 md:items-start -->
+                    <div class="flex flex-col items-center md:items-start">
                         <div class="text-white font-black text-2xl md:text-3xl mb-1 tracking-wide">Top #3</div>
                         <div class="text-xs md:text-sm text-gray-400 font-medium">導航工具排行榜</div>
                     </div>
                 </div>
-
+            </div>
+    
             <!-- 右側手機 Mockup -->
-            <div class="relative flex justify-center lg:justify-end mt-8 lg:mt-0">
+            <!-- 這裡將 lg:justify-end 改為 md:justify-end，lg:mt-0 改為 md:mt-0 -->
+            <div class="relative flex justify-center md:justify-end mt-8 md:mt-0">
                 <div class="w-[240px] h-[500px] md:w-[280px] md:h-[580px] bg-[#1a1921] rounded-[35px] md:rounded-[40px] border-[6px] md:border-[8px] border-gray-800 phone-mockup relative overflow-hidden flex flex-col items-center justify-center transform scale-95 md:scale-100">
                     <div class="absolute top-0 w-24 md:w-32 h-5 md:h-6 bg-gray-800 rounded-b-xl md:rounded-b-2xl z-20"></div>
                     <div class="w-full h-full p-4 flex flex-col relative z-10">
