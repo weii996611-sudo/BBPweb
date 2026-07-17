@@ -62,22 +62,42 @@
                     </a>
                 </div>
 
-                <!-- 價值展示 -->
-                <div class="pt-6 md:pt-10 flex flex-wrap justify-center lg:justify-start gap-8 md:gap-12 opacity-80">
+                <!-- 價值展示 (精準 4.3 星與亮白字體優化) -->
+                <div class="pt-6 md:pt-10 flex flex-wrap justify-center lg:justify-start gap-8 md:gap-12 opacity-90">
+                    <!-- 4.3 顆星區塊 -->
                     <div class="flex flex-col items-center lg:items-start">
-                        <div class="text-yellow-500 text-sm md:text-base tracking-widest mb-1">★★★★★</div>
+                        <div class="flex items-center gap-0.5 mb-1">
+                            <!-- 滿星 1 -->
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <!-- 滿星 2 -->
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <!-- 滿星 3 -->
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <!-- 滿星 4 -->
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <!-- 4.3 星 (精準裁切 30% 灰色、70% 金黃色) -->
+                            <div class="relative w-4 h-4 text-gray-700">
+                                <svg class="absolute w-full h-full text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <div class="absolute top-0 left-0 h-full overflow-hidden w-[30%]">
+                                    <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                </div>
+                            </div>
+                        </div>
                         <div class="text-xs md:text-sm font-bold text-gray-300">4.3 / 5 好評</div>
                     </div>
+
+                    <!-- 下載量區塊 -->
                     <div class="flex flex-col items-center lg:items-start">
-                        <div class="text-white font-bold text-base md:text-lg mb-1">20,000+</div>
-                        <div class="text-xs md:text-sm text-gray-400">活躍車主下載</div>
+                        <div class="text-white font-black text-2xl md:text-3xl mb-1 tracking-wide">20,000+</div>
+                        <div class="text-xs md:text-sm text-gray-400 font-medium">活躍車主下載</div>
                     </div>
+
+                    <!-- 排名區塊 -->
                     <div class="flex flex-col items-center lg:items-start">
-                        <div class="text-white font-bold text-base md:text-lg mb-1">Top #1</div>
-                        <div class="text-xs md:text-sm text-gray-400">導航工具排行榜</div>
+                        <div class="text-white font-black text-2xl md:text-3xl mb-1 tracking-wide">Top #3</div>
+                        <div class="text-xs md:text-sm text-gray-400 font-medium">導航工具排行榜</div>
                     </div>
                 </div>
-            </div>
 
             <!-- 右側手機 Mockup -->
             <div class="relative flex justify-center lg:justify-end mt-8 lg:mt-0">
@@ -319,19 +339,19 @@
             <div class="text-center mb-12 md:mb-16">
                 <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">車友們都怎麼說</h2>
                 <div class="flex items-center justify-center gap-2 text-yellow-500 mb-2 text-lg">★★★★★</div>
-                <p class="text-gray-400">4.8 顆星 / 來自萬名駕駛的真實回饋</p>
+                <p class="text-gray-400">4.3 顆星 / 來自駕駛的真實回饋</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-[#1a1921] p-6 md:p-8 rounded-2xl border border-gray-800 shadow-lg flex flex-col hover:border-gray-600 transition">
                     <div class="text-yellow-500 text-sm mb-3">★★★★★</div>
                     <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6 flex-1">
-                        「自從用了 BBpatrol 的懸浮視窗，搭配我習慣的導航地圖，再也沒收過國家級追焦照了！省下的罰單錢絕對值得，介面也很乾淨不擋視線。」
+                        「自從用了 BBpatrol ，搭配我習慣的導航地圖，幫我這罰單大戶避開了好多不合理罰單，必須支持!」
                     </p>
                     <div class="flex items-center gap-3 mt-auto">
-                        <div class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white font-bold">W</div>
+                        <div class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white font-bold">王</div>
                         <div>
-                            <div class="text-white font-bold text-sm">王建名</div>
+                            <div class="text-white font-bold text-sm">王X名</div>
                             <div class="text-gray-500 text-xs">App Store 評價</div>
                         </div>
                     </div>
@@ -340,12 +360,12 @@
                 <div class="bg-[#1a1921] p-6 md:p-8 rounded-2xl border border-gray-800 shadow-lg flex flex-col hover:border-gray-600 transition">
                     <div class="text-yellow-500 text-sm mb-3">★★★★★</div>
                     <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6 flex-1">
-                        「一分鐘語音回報真的很方便！昨天在國道遇到掉落物，按一下就能提醒後面的車友，非常有互助的感覺。系統穩定度也比市面其他測速好很多。」
+                        「語音回報真的很方便！按一下就能提醒後面的車友，感覺自己加入一個大車隊XD。」
                     </p>
                     <div class="flex items-center gap-3 mt-auto">
-                        <div class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white font-bold">L</div>
+                        <div class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white font-bold">林</div>
                         <div>
-                            <div class="text-white font-bold text-sm">林曉婷</div>
+                            <div class="text-white font-bold text-sm">林x婷</div>
                             <div class="text-gray-500 text-xs">Google Play 評價</div>
                         </div>
                     </div>
@@ -354,12 +374,12 @@
                 <div class="bg-[#1a1921] p-6 md:p-8 rounded-2xl border border-gray-800 shadow-lg flex flex-col hover:border-gray-600 transition">
                     <div class="text-yellow-500 text-sm mb-3">★★★★★</div>
                     <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6 flex-1">
-                        「我訂閱了標準版，幫自己的車隊錄製了專屬的測速提醒音效。每次出遊聽到自己錄的聲音，大家都在車上笑翻，開長途一點都不無聊！」
+                        「我幫自己的錄製了測速提醒音效。每次開車聽到莫名其妙的音效，大家都一臉問號，開長途變得一點都不無聊！」
                     </p>
                     <div class="flex items-center gap-3 mt-auto">
-                        <div class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white font-bold">C</div>
+                        <div class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white font-bold">張</div>
                         <div>
-                            <div class="text-white font-bold text-sm">張世豪</div>
+                            <div class="text-white font-bold text-sm">張X豪</div>
                             <div class="text-gray-500 text-xs">App Store 評價</div>
                         </div>
                     </div>
@@ -378,13 +398,13 @@
 
             <div class="grid md:grid-cols-2 gap-6 md:gap-8 px-2 sm:px-0">
                 <div class="bg-[#121216] border border-gray-800 rounded-2xl md:rounded-3xl p-6 md:p-10 flex flex-col">
-                    <h3 class="text-lg md:text-xl font-bold text-white mb-2">免費體驗</h3>
+                    <h3 class="text-lg md:text-xl font-bold text-white mb-2">免費使用</h3>
                     <div class="text-3xl md:text-4xl font-black text-white mb-4 md:mb-6">NT$ 0 <span class="text-sm md:text-base font-normal text-gray-500">/ 永久</span></div>
                     <p class="text-gray-400 text-xs md:text-sm mb-6 md:mb-8 flex-1">適合剛下載 APP，想先體驗基本測速提醒與介面的車主。</p>
                     <ul class="space-y-3 md:space-y-4 text-xs md:text-sm text-gray-300 mb-8 md:mb-10">
                         <li class="flex items-center gap-2 md:gap-3"><div class="text-green-500">✔</div> 基本測速與懸浮視窗</li>
-                        <li class="flex items-center gap-2 md:gap-3"><div class="text-green-500">✔</div> 路況圖文/錄音回報</li>
-                        <li class="flex items-center gap-2 md:gap-3"><div class="text-green-500">✔</div> 可試聽 1 個限時語音</li>
+                        <li class="flex items-center gap-2 md:gap-3"><div class="text-green-500">✔</div> 觀看公佈欄免費資訊</li>
+                        <li class="flex items-center gap-2 md:gap-3"><div class="text-green-500">✔</div> 可錄製與上傳1個自訂音效</li>
                     </ul>
                     <button class="w-full py-3 md:py-4 rounded-xl bg-gray-800 text-white font-bold text-sm md:text-base hover:bg-gray-700 transition">目前的方案</button>
                 </div>
@@ -393,12 +413,13 @@
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-red text-white text-[10px] md:text-xs font-bold px-3 md:px-4 py-1 md:py-1.5 rounded-full">推薦訂閱</div>
                     <h3 class="text-lg md:text-xl font-bold text-brand-red mb-2">標準訂閱</h3>
                     <div class="text-3xl md:text-4xl font-black text-white mb-4 md:mb-6">完整解鎖</div>
-                    <p class="text-gray-400 text-xs md:text-sm mb-6 md:mb-8 flex-1">解鎖所有個性化自訂功能，打造獨一無二的專屬駕駛氛圍。</p>
+                    <p class="text-gray-400 text-xs md:text-sm mb-6 md:mb-8 flex-1">解鎖所有自訂功能，打造獨一無二的駕駛體驗。</p>
                     <ul class="space-y-3 md:space-y-4 text-xs md:text-sm text-white mb-8 md:mb-10">
-                        <li class="flex items-center gap-2 md:gap-3"><div class="text-brand-red font-bold">✔</div> 包含所有免費版功能</li>
-                        <li class="flex items-center gap-2 md:gap-3"><div class="text-brand-red font-bold">✔</div> 解鎖 3 個語音包切換</li>
-                        <li class="flex items-center gap-2 md:gap-3"><div class="text-brand-red font-bold">✔</div> 錄製與上傳自訂語音</li>
-                        <li class="flex items-center gap-2 md:gap-3"><div class="text-brand-red font-bold">✔</div> 自訂語音包專屬封面圖</li>
+                        <li class="flex items-center gap-2 md:gap-3"><div class="text-brand-red font-bold">✔</div> 無廣告</li>
+                        <li class="flex items-center gap-2 md:gap-3"><div class="text-brand-red font-bold">✔</div> 查看訂閱會員專屬當日即時資料</li>
+                        <li class="flex items-center gap-2 md:gap-3"><div class="text-brand-red font-bold">✔</div> 可錄製與上傳3個自訂音效</li>
+                        <li class="flex items-center gap-2 md:gap-3"><div class="text-brand-red font-bold">✔</div> 解鎖隨機語音功能</li>
+                        <li class="flex items-center gap-2 md:gap-3"><div class="text-brand-red font-bold">✔</div> 進入會員互助群</li>
                     </ul>
                     <button class="w-full py-3 md:py-4 rounded-xl bg-brand-red text-white font-bold text-sm md:text-base hover:bg-red-700 transition shadow-lg">立即升級</button>
                 </div>
