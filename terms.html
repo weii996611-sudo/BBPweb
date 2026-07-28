@@ -1,3 +1,2027 @@
+
+Gemini
+新對話
+搜尋對話
+影片
+媒體庫
+新增筆記本
+
+expand_more
+資料夾
+
+
+
+
+
+
+搜尋資料夾和對話 · f: 僅資料夾
+和 Gemini 的對話
+我有做一張app運作流程讓第一次看到的人了解怎麼用
+
+這張圖我想放在 背景執行/圖文回報/多樣化語音 這裡並取代
+
+沒問題！你要替換的是原本程式碼中的 「特點橫幅」 區塊。
+
+請在你的 HTML 檔案中找到以下這段程式碼（大約在 Hero 區塊的下方，<section id="tutorial"> 的上方）：
+
+🗑️ 需要刪除的部分：
+請將下面這整段 <section> 刪除：
+
+HTML
+<!-- 特點橫幅 -->
+<section class="border-y border-gray-900 bg-[#121216] py-6 md:py-10">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 text-center sm:divide-x divide-gray-800">
+        <div class="pb-4 sm:pb-0 border-b border-gray-800 sm:border-none">
+            <div class="text-xl md:text-3xl font-black text-white mb-1">背景執行</div>
+            <div class="text-xs md:text-sm text-gray-500">適用所有地圖工具</div>
+        </div>
+        <div class="pb-4 sm:pb-0 border-b border-gray-800 sm:border-none">
+            <div class="text-xl md:text-3xl font-black text-white mb-1">圖文回報</div>
+            <div class="text-xs md:text-sm text-gray-500">一鍵回報分享路況</div>
+        </div>
+        <div>
+            <div class="text-xl md:text-3xl font-black text-white mb-1">多樣化語音</div>
+            <div class="text-xs md:text-sm text-gray-500">獲得不一樣的駕駛樂趣</div>
+        </div>
+    </div>
+</section>
+✨ 替換為以下程式碼：
+將剛剛刪除的地方，換成這段專門用來展示你 image_2dec3f.jpg 圖片的區塊。
+
+這裡我幫你設定了響應式排版，讓圖片在手機上能自適應寬度，在桌機版也不會過度放大導致模糊，並且加上了微微的圓角與陰影讓它更好看：
+
+HTML
+<!-- APP 運作流程圖 -->
+<section class="border-y border-gray-900 bg-[#121216] py-10 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 md:px-6 flex justify-center">
+        <!-- 記得確認檔名與路徑是否正確 -->
+        <img src="image_2dec3f.jpg" alt="APP 運作流程：一鍵回報後，系統會立即標記位置並通知附近車友" class="w-full h-auto rounded-2xl shadow-2xl">
+    </div>
+</section>
+這樣修改後，原本的三個純文字特點就會完美變成你精心製作的視覺化運作流程圖了！如果覺得桌機版圖片太大或太小，可以微調 max-w-4xl 這個數值（例如改成 max-w-3xl 會變小，max-w-5xl 會變大）。
+
+這個手機畫面跑掉了
+
+從截圖來看，這是因為你的瀏覽器視窗寬度剛好落在了「平板或較小尺寸筆電」的範圍（大約在 768px 到 1023px 之間）。
+
+在原本的程式碼中，左右雙欄的排版是設定為 lg:grid-cols-2，意思是當螢幕寬度大於 1024px 時才會變成左右兩排，否則就會上下堆疊（文字在上，手機在下），且自動置中。
+
+如果你希望在較小的筆電或平板螢幕上，手機畫面也能保持在右側，我們需要把觸發雙欄的斷點從 lg (1024px) 提前到 md (768px)。
+
+請找到 <!-- 首屏主視覺 (Hero Section) --> 區塊，並將裡面的 lg: 開頭的 class 全部替換成 md:：
+
+需要修改的程式碼：
+HTML
+
+<!-- 首屏主視覺 (Hero Section) -->
+<header class="relative pt-24 pb-16 md:pt-32 md:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-red-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+    
+    <!-- 1. 將 lg:grid-cols-2 改為 md:grid-cols-2 -->
+    <div class="max-w-7xl mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-10 lg:gap-12 items-center relative z-10">
+        
+        <!-- 左側文案 -->
+        <!-- 2. 將 lg:text-left 改為 md:text-left -->
+        <div class="space-y-6 md:space-y-8 text-center md:text-left">
+            <div class="inline-block bg-gray-900 border border-gray-700 text-brand-red text-[10px] md:text-xs px-3 py-1 rounded-full font-semibold tracking-wider">
+                iOS/Android APP正式上架
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.15]">
+                告別罰單<br>
+                <span class="text-brand-red">享受駕駛</span>
+            </h1>
+            
+            <!-- 3. 將 lg:mx-0 改為 md:mx-0 -->
+            <p class="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-sm sm:max-w-md md:max-w-lg mx-auto md:mx-0">
+                不只是測速照相提醒。BBpatrol 結合即時路況圖文回報、極簡懸浮視窗與客製化語音，讓每趟旅途都安全又充滿樂趣。
+            </p>
+            
+            <!-- 4. 將 lg:justify-start 改為 md:justify-start -->
+            <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start pt-2 px-4 sm:px-0">
+                <a href="https://apps.apple.com/tw/app/bbpatrol%E9%BB%91%E7%AE%B1%E7%B3%BE%E5%AF%9F%E9%9A%8A/id6746429798" target="_blank" rel="noopener noreferrer" class="bg-brand-red text-white w-full sm:w-auto px-6 py-3.5 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-lg hover:bg-red-700 transition flex items-center justify-center gap-2">
+                    <span>Apple Store 下載</span>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.timer_swift&pli=1" target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-white w-full sm:w-auto px-6 py-3.5 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-lg hover:bg-gray-700 transition border border-gray-700 flex items-center justify-center gap-2">
+                    <span>Google Play 下載</span>
+                </a>
+            </div>
+
+            <!-- 5. 將 lg:justify-start 改為 md:justify-start -->
+            <div class="pt-6 md:pt-10 flex flex-wrap justify-center md:justify-start gap-8 md:gap-12 opacity-90">
+                
+                <!-- 6. 將 lg:items-start 改為 md:items-start (以下三個區塊都要改) -->
+                <div class="flex flex-col items-center md:items-start">
+                    <!-- ... 星星的 SVG 程式碼保持不變 ... -->
+                    <div class="text-xs md:text-sm font-bold text-gray-300 mt-1">4.3 / 5 好評</div>
+                </div>
+
+                <div class="flex flex-col items-center md:items-start">
+                    <div class="text-white font-black text-2xl md:text-3xl mb-1 tracking-wide">20,000+</div>
+                    <div class="text-xs md:text-sm text-gray-400 font-medium">活躍車主下載</div>
+                </div>
+
+                <div class="flex flex-col items-center md:items-start">
+                    <div class="text-white font-black text-2xl md:text-3xl mb-1 tracking-wide">Top #3</div>
+                    <div class="text-xs md:text-sm text-gray-400 font-medium">導航工具排行榜</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. 將 lg:justify-end 改為 md:justify-end，將 lg:mt-0 改為 md:mt-0 -->
+        <div class="relative flex justify-center md:justify-end mt-8 md:mt-0">
+            <!-- 內部的手機 Mockup 結構保持不變 -->
+            <div class="w-[240px] h-[500px] md:w-[280px] md:h-[580px] bg-[#1a1921] rounded-[35px] md:rounded-[40px] border-[6px] md:border-[8px] border-gray-800 phone-mockup relative overflow-hidden flex flex-col items-center justify-center transform scale-95 md:scale-100">
+                <!-- ... 手機內容保持不變 ... -->
+            </div>
+        </div>
+        
+    </div>
+</header>
+修改重點總結：
+只要把左側排版的條件控制，由原本的 lg (桌機才觸發) 降級成 md (平板以上就觸發)，這樣在這個寬度下，文字就會順利靠左，手機畫面就會回到右邊了。
+
+<!-- 首屏主視覺 (Hero Section) -->
+
+    <header class="relative pt-24 pb-16 md:pt-32 md:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
+
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-red-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        
+
+        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center relative z-10">
+
+            <!-- 左側文案 -->
+
+            <div class="space-y-6 md:space-y-8 text-center lg:text-left">
+
+                <div class="inline-block bg-gray-900 border border-gray-700 text-brand-red text-[10px] md:text-xs px-3 py-1 rounded-full font-semibold tracking-wider">
+
+                    iOS/Android APP正式上架
+
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.15]">
+
+                    告別罰單<br>
+
+                    <span class="text-brand-red">享受駕駛</span>
+
+                </h1>
+
+                <p class="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-sm sm:max-w-md md:max-w-lg mx-auto lg:mx-0">
+
+                    不只是測速照相提醒。BBpatrol 結合即時路況圖文回報、極簡懸浮視窗與客製化語音，讓每趟旅途都安全又充滿樂趣。
+
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start pt-2 px-4 sm:px-0">
+
+                    <a href="https://apps.apple.com/tw/app/bbpatrol%E9%BB%91%E7%AE%B1%E7%B3%BE%E5%AF%9F%E9%9A%8A/id6746429798" target="_blank" rel="noopener noreferrer" class="bg-brand-red text-white w-full sm:w-auto px-6 py-3.5 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-lg hover:bg-red-700 transition flex items-center justify-center gap-2">
+
+                        <span>Apple Store 下載</span>
+
+                    </a>
+
+                    <a href="https://play.google.com/store/apps/details?id=com.timer_swift&pli=1" target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-white w-full sm:w-auto px-6 py-3.5 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-lg hover:bg-gray-700 transition border border-gray-700 flex items-center justify-center gap-2">
+
+                        <span>Google Play 下載</span>
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- 價值展示 (精準 4.3 星與亮白字體優化) -->
+
+                <div class="pt-6 md:pt-10 flex flex-wrap justify-center lg:justify-start gap-8 md:gap-12 opacity-90">
+
+                    <!-- 4.3 顆星區塊 -->
+
+                    <div class="flex flex-col items-center lg:items-start">
+
+                        <div class="flex items-center gap-0.5 mb-1">
+
+                            <!-- 滿星 1 -->
+
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+
+                            <!-- 滿星 2 -->
+
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+
+                            <!-- 滿星 3 -->
+
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+
+                            <!-- 滿星 4 -->
+
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+
+                            <!-- 4.3 星 (精準裁切 30% 灰色、70% 金黃色) -->
+
+                            <div class="relative w-4 h-4 text-gray-700">
+
+                                <!-- 底圖：灰色星星 -->
+
+                                <svg class="absolute w-full h-full text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+
+                                
+
+                                <!-- 上層：黃色星星 (在這裡將 w-[30%] 改成了 w-[40%]) -->
+
+                                <div class="absolute top-0 left-0 h-full overflow-hidden w-[40%]">
+
+                                    <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="text-xs md:text-sm font-bold text-gray-300">4.3 / 5 好評</div>
+
+                    </div>
+
+
+
+                    <!-- 下載量區塊 -->
+
+                    <div class="flex flex-col items-center lg:items-start">
+
+                        <div class="text-white font-black text-2xl md:text-3xl mb-1 tracking-wide">20,000+</div>
+
+                        <div class="text-xs md:text-sm text-gray-400 font-medium">活躍車主下載</div>
+
+                    </div>
+
+
+
+                    <!-- 排名區塊 -->
+
+                    <div class="flex flex-col items-center lg:items-start">
+
+                        <div class="text-white font-black text-2xl md:text-3xl mb-1 tracking-wide">Top #3</div>
+
+                        <div class="text-xs md:text-sm text-gray-400 font-medium">導航工具排行榜</div>
+
+                    </div>
+
+                </div>
+
+
+
+            <!-- 右側手機 Mockup -->
+
+            <div class="relative flex justify-center lg:justify-end mt-8 lg:mt-0">
+
+                <div class="w-[240px] h-[500px] md:w-[280px] md:h-[580px] bg-[#1a1921] rounded-[35px] md:rounded-[40px] border-[6px] md:border-[8px] border-gray-800 phone-mockup relative overflow-hidden flex flex-col items-center justify-center transform scale-95 md:scale-100">
+
+                    <div class="absolute top-0 w-24 md:w-32 h-5 md:h-6 bg-gray-800 rounded-b-xl md:rounded-b-2xl z-20"></div>
+
+                    <div class="w-full h-full p-4 flex flex-col relative z-10">
+
+                        <div class="mt-8 md:mt-12 flex justify-between items-start">
+
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full border-[3px] md:border-4 border-red-500 flex items-center justify-center text-black font-black text-base md:text-lg shadow-lg">60</div>
+
+                            <div class="w-8 h-8 md:w-10 md:h-10 bg-yellow-500 rounded flex items-center justify-center text-black font-black text-sm md:text-base shadow-lg">固</div>
+
+                        </div>
+
+                        <div class="flex-1 flex flex-col items-center justify-center">
+
+                            <div class="w-40 h-40 md:w-48 md:h-48 rounded-full border-[6px] md:border-8 border-gray-700 border-t-brand-red flex flex-col items-center justify-center relative">
+
+                                <span class="text-4xl md:text-5xl font-black text-white">100</span>
+
+                                <span class="text-[10px] md:text-xs text-gray-400 mt-1">Km/h</span>
+
+                                <div class="absolute -bottom-3 bg-gray-800 text-white px-3 md:px-4 py-1 rounded-full text-[10px] md:text-xs border border-gray-600">15 公尺</div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="h-16 md:h-20 w-full bg-gray-900 rounded-xl md:rounded-2xl border border-gray-800 flex items-center justify-around px-2 md:px-4 mt-auto">
+
+                            <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-red-500/20 text-brand-red flex items-center justify-center text-base md:text-xl">📢</div>
+
+                            <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center text-sm md:text-base">⚙️</div>
+
+                            <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center text-sm md:text-base">👤</div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+直接幫我改
+
+好的，這就為你把整個 Hero 區塊的排版邏輯，從 lg (1024px 桌機觸發) 提早到 md (768px 平板觸發)。
+
+直接複製並取代你目前的 <!-- 首屏主視覺 (Hero Section) --> 區塊：
+
+HTML
+
+<!-- 首屏主視覺 (Hero Section) -->
+<header class="relative pt-24 pb-16 md:pt-32 md:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-red-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+    
+    <!-- 這裡將 lg:grid-cols-2 改為 md:grid-cols-2 -->
+    <div class="max-w-7xl mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-10 lg:gap-12 items-center relative z-10">
+        
+        <!-- 左側文案 -->
+        <!-- 這裡將 lg:text-left 改為 md:text-left -->
+        <div class="space-y-6 md:space-y-8 text-center md:text-left">
+            <div class="inline-block bg-gray-900 border border-gray-700 text-brand-red text-[10px] md:text-xs px-3 py-1 rounded-full font-semibold tracking-wider">
+                iOS/Android APP正式上架
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.15]">
+                告別罰單<br>
+                <span class="text-brand-red">享受駕駛</span>
+            </h1>
+            <!-- 這裡將 lg:mx-0 改為 md:mx-0 -->
+            <p class="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-sm sm:max-w-md md:max-w-lg mx-auto md:mx-0">
+                不只是測速照相提醒。BBpatrol 結合即時路況圖文回報、極簡懸浮視窗與客製化語音，讓每趟旅途都安全又充滿樂趣。
+            </p>
+            
+            <!-- 這裡將 lg:justify-start 改為 md:justify-start -->
+            <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start pt-2 px-4 sm:px-0">
+                <a href="https://apps.apple.com/tw/app/bbpatrol%E9%BB%91%E7%AE%B1%E7%B3%BE%E5%AF%9F%E9%9A%8A/id6746429798" target="_blank" rel="noopener noreferrer" class="bg-brand-red text-white w-full sm:w-auto px-6 py-3.5 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-lg hover:bg-red-700 transition flex items-center justify-center gap-2">
+                    <span>Apple Store 下載</span>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.timer_swift&pli=1" target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-white w-full sm:w-auto px-6 py-3.5 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-lg hover:bg-gray-700 transition border border-gray-700 flex items-center justify-center gap-2">
+                    <span>Google Play 下載</span>
+                </a>
+            </div>
+
+            <!-- 價值展示 (精準 4.3 星與亮白字體優化) -->
+            <!-- 這裡將 lg:justify-start 改為 md:justify-start -->
+            <div class="pt-6 md:pt-10 flex flex-wrap justify-center md:justify-start gap-8 md:gap-12 opacity-90">
+                
+                <!-- 4.3 顆星區塊 -->
+                <!-- 這裡將 lg:items-start 改為 md:items-start -->
+                <div class="flex flex-col items-center md:items-start">
+                    <div class="flex items-center gap-0.5 mb-1">
+                        <!-- 滿星 1 -->
+                        <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <!-- 滿星 2 -->
+                        <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <!-- 滿星 3 -->
+                        <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <!-- 滿星 4 -->
+                        <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <!-- 4.3 星 (精準裁切 40% 金黃色，我已將這裡的寬度設定為 40%) -->
+                        <div class="relative w-4 h-4 text-gray-700">
+                            <!-- 底圖：灰色星星 -->
+                            <svg class="absolute w-full h-full text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            
+                            <!-- 上層：黃色星星 -->
+                            <div class="absolute top-0 left-0 h-full overflow-hidden w-[40%]">
+                                <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-xs md:text-sm font-bold text-gray-300">4.3 / 5 好評</div>
+                </div>
+
+                <!-- 下載量區塊 -->
+                <!-- 這裡將 lg:items-start 改為 md:items-start -->
+                <div class="flex flex-col items-center md:items-start">
+                    <div class="text-white font-black text-2xl md:text-3xl mb-1 tracking-wide">20,000+</div>
+                    <div class="text-xs md:text-sm text-gray-400 font-medium">活躍車主下載</div>
+                </div>
+
+                <!-- 排名區塊 -->
+                <!-- 這裡將 lg:items-start 改為 md:items-start -->
+                <div class="flex flex-col items-center md:items-start">
+                    <div class="text-white font-black text-2xl md:text-3xl mb-1 tracking-wide">Top #3</div>
+                    <div class="text-xs md:text-sm text-gray-400 font-medium">導航工具排行榜</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右側手機 Mockup -->
+        <!-- 這裡將 lg:justify-end 改為 md:justify-end，lg:mt-0 改為 md:mt-0 -->
+        <div class="relative flex justify-center md:justify-end mt-8 md:mt-0">
+            <div class="w-[240px] h-[500px] md:w-[280px] md:h-[580px] bg-[#1a1921] rounded-[35px] md:rounded-[40px] border-[6px] md:border-[8px] border-gray-800 phone-mockup relative overflow-hidden flex flex-col items-center justify-center transform scale-95 md:scale-100">
+                <div class="absolute top-0 w-24 md:w-32 h-5 md:h-6 bg-gray-800 rounded-b-xl md:rounded-b-2xl z-20"></div>
+                <div class="w-full h-full p-4 flex flex-col relative z-10">
+                    <div class="mt-8 md:mt-12 flex justify-between items-start">
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full border-[3px] md:border-4 border-red-500 flex items-center justify-center text-black font-black text-base md:text-lg shadow-lg">60</div>
+                        <div class="w-8 h-8 md:w-10 md:h-10 bg-yellow-500 rounded flex items-center justify-center text-black font-black text-sm md:text-base shadow-lg">固</div>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center justify-center">
+                        <div class="w-40 h-40 md:w-48 md:h-48 rounded-full border-[6px] md:border-8 border-gray-700 border-t-brand-red flex flex-col items-center justify-center relative">
+                            <span class="text-4xl md:text-5xl font-black text-white">100</span>
+                            <span class="text-[10px] md:text-xs text-gray-400 mt-1">Km/h</span>
+                            <div class="absolute -bottom-3 bg-gray-800 text-white px-3 md:px-4 py-1 rounded-full text-[10px] md:text-xs border border-gray-600">15 公尺</div>
+                        </div>
+                    </div>
+                    <div class="h-16 md:h-20 w-full bg-gray-900 rounded-xl md:rounded-2xl border border-gray-800 flex items-center justify-around px-2 md:px-4 mt-auto">
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-red-500/20 text-brand-red flex items-center justify-center text-base md:text-xl">📢</div>
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center text-sm md:text-base">⚙️</div>
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center text-sm md:text-base">👤</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+我要改這個標題圖片
+
+已經上傳到github
+
+分頁顯示圖片也能改嗎
+
+沒問題！你提到的兩個地方都可以修改：
+
+導覽列上的標誌 (Logo)
+
+瀏覽器分頁上的小圖示 (Favicon)
+
+既然你已經將圖片命名為 LOGO1.png 並上傳到了 GitHub，請按照以下步驟修改你的 HTML 檔案。
+
+1. 修改瀏覽器分頁圖片 (Favicon)
+要在網頁分頁（標籤頁）顯示你的 Logo，需要在 HTML 的 <head> 區塊內加上 <link rel="icon"> 標籤。
+
+請找到你程式碼最上方的 <head> 區塊，並在 <title> 下方加入這行程式碼：
+
+HTML
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BBpatrol 雙平台測速系統 - 告別罰單，享受駕駛</title>
+    
+    <!-- 加入下面這行來設定分頁圖示 (Favicon) -->
+    <link rel="icon" type="image/png" href="LOGO1.png">
+    
+    <meta name="description" content="BBpatrol 雙平台測速系統，提供精準測速、路況回報與專屬語音包。">
+    <!-- ... 下面保持原樣 ... -->
+2. 修改導覽列 (Navbar) 的 Logo 圖片
+你原本的 Logo 是用 CSS 畫出一個紅底白字「B」的方塊。現在我們把它替換成真正的 <img> 圖片標籤。
+
+請找到 <!-- 導覽列 --> 區塊，將原本的 <div class="w-7 h-7...">B</div> 替換掉：
+
+修改前：
+
+HTML
+<div class="flex items-center gap-2">
+    <div class="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-brand-red flex items-center justify-center font-bold text-white text-sm md:text-base">B</div>
+    <span class="text-lg md:text-xl font-bold tracking-widest text-white">BBpatrol</span>
+</div>
+修改後：
+
+HTML
+<div class="flex items-center gap-2">
+    <!-- 替換成你的 Logo 圖片，保留了原本的尺寸設定 -->
+    <img src="LOGO1.png" alt="BBpatrol Logo" class="w-7 h-7 md:w-8 md:h-8 object-contain rounded-lg">
+    
+    <span class="text-lg md:text-xl font-bold tracking-widest text-white">BBpatrol</span>
+</div>
+(備註：如果你的 LOGO1.png 裡面已經包含了「BBpatrol」的文字，你可以把下面的 <span ...>BBpatrol</span> 整行刪除，並稍微調大圖片的 w- 和 h- 尺寸。)
+
+3. (補充) 修改頁尾 (Footer) 的 Logo 圖片
+為了保持網站視覺一致，最底部的 Footer 也有一個一模一樣的紅底白字「B」，建議一併替換。
+
+請找到 <!-- 清爽版 Footer --> 區塊：
+
+修改前：
+
+HTML
+<div class="flex items-center gap-2 mb-6">
+    <div class="w-8 h-8 rounded-lg bg-brand-red flex items-center justify-center font-bold text-white">B</div>
+    <span class="text-xl font-bold tracking-widest text-white">BBpatrol</span>
+</div>
+修改後：
+
+HTML
+<div class="flex items-center gap-2 mb-6">
+    <!-- 替換成你的 Logo 圖片 -->
+    <img src="LOGO1.png" alt="BBpatrol Logo" class="w-8 h-8 object-contain rounded-lg">
+    
+    <span class="text-xl font-bold tracking-widest text-white">BBpatrol</span>
+</div>
+這樣修改完並推送到 GitHub Pages 後，重整網頁就能看到分頁圖示與網站內的 Logo 都變成你的 LOGO1.png 了！
+
+1.logo圖片要再大一點
+
+2.星星跟4.3/5好評 要大一點
+
+3.中間這個儀表板圖案要換成我的Logo1.png
+
+4.分頁的logo圖片也是要再大
+
+這四個需求都可以輕鬆達成！以下為你整理出對應的修改方式與程式碼：
+
+1. 導覽列 Logo 圖片放大
+請找到 <nav> 導覽列裡面的 LOGO1.png 圖片，我們將它的寬高 class（原本可能是 w-7 h-7 或 w-8 h-8）加大，例如改為 w-10 h-10 md:w-12 md:h-12：
+
+HTML
+<div class="flex items-center gap-2">
+    <!-- 將尺寸放大為 w-10 h-10 (手機版) 與 w-12 h-12 (桌機版) -->
+    <img src="LOGO1.png" alt="BBpatrol Logo" class="w-10 h-10 md:w-12 md:h-12 object-contain rounded-lg">
+    
+    <span class="text-lg md:text-xl font-bold tracking-widest text-white">BBpatrol</span>
+</div>
+2. 星星與「4.3 / 5 好評」文字放大
+請找到 <!-- 4.3 顆星區塊 -->，將原本的星星 SVG 尺寸 w-4 h-4 全面改為 w-5 h-5 md:w-6 md:h-6，並將下方的文字從 text-xs 加大至 text-sm md:text-base。
+
+請直接用這段替換原來的星評區塊：
+
+HTML
+
+<!-- 4.3 顆星區塊 -->
+<div class="flex flex-col items-center md:items-start">
+    <div class="flex items-center gap-1 mb-1">
+        <!-- 滿星 1 -->
+        <svg class="w-5 h-5 md:w-6 md:h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <!-- 滿星 2 -->
+        <svg class="w-5 h-5 md:w-6 md:h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <!-- 滿星 3 -->
+        <svg class="w-5 h-5 md:w-6 md:h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <!-- 滿星 4 -->
+        <svg class="w-5 h-5 md:w-6 md:h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <!-- 4.3 星 (精準裁切 40% 金黃色) -->
+        <div class="relative w-5 h-5 md:w-6 md:h-6 text-gray-700">
+            <!-- 底圖：灰色星星 -->
+            <svg class="absolute w-full h-full text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <!-- 上層：黃色星星 -->
+            <div class="absolute top-0 left-0 h-full overflow-hidden w-[40%]">
+                <svg class="w-5 h-5 md:w-6 md:h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+        </div>
+    </div>
+    <!-- 文字放大 -->
+    <div class="text-sm md:text-base font-bold text-gray-300 mt-1">4.3 / 5 好評</div>
+</div>
+3. 將中間的儀表板圖案換成 Logo1.png
+請找到 <!-- 右側手機 Mockup --> 區塊裡面，包含 100 Km/h 的那個 div，將原本的圓圈與文字刪除，直接替換成你的圖片。
+
+替換這段：
+
+HTML
+<div class="flex-1 flex flex-col items-center justify-center">
+    <!-- 將這整塊替換成 Logo 圖片 -->
+    <img src="LOGO1.png" alt="BBpatrol" class="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-2xl">
+</div>
+(這裡設定 w-32 和 w-40 讓 Logo 不會過度撐大並保有舒適的邊距，加上 drop-shadow-2xl 可以讓 Logo 在黑色背景下浮凸出來更有質感)
+
+4. 分頁 (Favicon) 的圖片大小問題說明
+你在圖片 image_39b2c9.png 中圈出的分頁圖示變得很小，這是因為瀏覽器分頁 (Tab) 的圖示顯示尺寸是「由瀏覽器強制固定的」（通常是 16x16 或 32x32 像素）。HTML 標籤無法直接要求瀏覽器「把分頁圖示變大」。
+
+解決方法：裁切原圖的留白邊緣
+這通常是因為你的原檔 LOGO1.png 圖片，在相機圖示的外圍還有許多透明的留白（空白區域）。瀏覽器會把整張圖片（包含透明留白）縮小塞進 16x16 的格子裡，導致中間的實體圖案看起來更小了。
+
+👉 建議處理方式：
+請使用修圖軟體（如小畫家、Photoshop 或免費的線上工具），將 LOGO1.png 四周透明或白色的邊緣裁切掉，讓相機圖案「貼齊」圖片的上下左右邊緣，然後重新存檔上傳 GitHub，分頁上的圖示視覺上就會變大很多！
+
+有上傳臉書.ig.line.threads icon到github
+
+並有連結
+
+line:https://lin.ee/7Gi34hZ
+
+ig:https://www.instagram.com/bbpatrol.tw/
+
+threads:https://www.threads.com/@bbpatrol.tw?xmt=AQG0wyQuBokbQv6PndQIaAmClPBKYTBOPL536py9IvwfjIYjN4GotcGjEuiCFOSl7iUE5v5h
+
+facebook:https://www.facebook.com/profile.php?id=61577787920069
+
+沒問題！我們要將 Footer 區塊中原本的文字按鈕 (f, IG, LINE) 替換成你上傳的社群圖示 (Facebook, Instagram, LINE, Threads)，並加上你提供的真實連結。
+
+請找到你 HTML 檔案中最下方的 <!-- 清爽版 Footer --> 區塊，並將裡面包含社群連結的 <div class="flex gap-4 pt-4">...</div> 這段程式碼替換成以下內容：
+
+📝 修改程式碼
+替換前：
+
+HTML
+<div class="flex gap-4 pt-4">
+    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-brand-red transition">f</a>
+    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-brand-red transition">IG</a>
+    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-brand-red transition">LINE</a>
+</div>
+替換後：
+
+HTML
+<div class="flex gap-4 pt-4">
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/profile.php?id=61577787920069" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all duration-300">
+        <img src="facebook.png" alt="BBpatrol Facebook" class="w-full h-full object-contain">
+    </a>
+    
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/bbpatrol.tw/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all duration-300">
+        <img src="instagram.png" alt="BBpatrol Instagram" class="w-full h-full object-contain">
+    </a>
+    
+    <!-- Threads -->
+    <a href="https://www.threads.com/@bbpatrol.tw?xmt=AQG0wyQuBokbQv6PndQIaAmClPBKYTBOPL536py9IvwfjIYjN4GotcGjEuiCFOSl7iUE5v5h" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all duration-300">
+        <img src="Threads.png" alt="BBpatrol Threads" class="w-full h-full object-contain">
+    </a>
+
+    <!-- LINE -->
+    <a href="https://lin.ee/7Gi34hZ" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all duration-300">
+        <img src="line.png" alt="BBpatrol LINE" class="w-full h-full object-contain">
+    </a>
+</div>
+修改重點說明：
+
+連結寫入： 把 href="#" 換成了你提供的真實網址。
+
+開新分頁： 加上了 target="_blank" rel="noopener noreferrer"，這樣使用者點擊時會開新分頁，不會跳離你的網站。
+
+圖片替換： 拿掉了原本的灰底圓圈背景 (bg-gray-800 rounded-full)，直接用 <img> 載入你的圖片 (facebook.png, instagram.png, Threads.png, line.png)。
+
+互動效果： 加上了 hover:opacity-80 hover:scale-110，讓滑鼠移過去時圖片會稍微變透明且放大，增加互動感！
+
+把這兩個連結替換成這兩個png
+
+沒問題！我們要把 Footer 區塊右下角原本用 HTML/CSS 排版的下載按鈕，替換成你提供的 ios.png 和 google-play.png 圖片，並保留原本的下載連結。
+
+請找到你 HTML 檔案中最下方的 <!-- 清爽版 Footer --> 區塊，找到以下這段程式碼：
+
+📝 修改程式碼
+替換前（原本的文字按鈕）：
+
+HTML
+<div class="md:col-span-3 space-y-4">
+    <h5 class="text-white font-bold mb-4 text-center md:text-left">立即下載 APP</h5>
+    <div class="flex flex-col gap-3">
+        <a href="https://apps.apple.com/tw/app/bbpatrol%E9%BB%91%E7%AE%B1%E7%B3%BE%E5%AF%9F%E9%9A%8A/id6746429798" target="_blank" rel="noopener noreferrer" class="bg-gray-800 border border-gray-700 text-white px-4 py-2.5 rounded-lg flex items-center gap-3 hover:bg-gray-700 transition justify-center md:justify-start">
+            <span class="text-[10px] text-left leading-tight text-gray-400">Download on the<br><span class="text-sm font-bold text-white">App Store</span></span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.timer_swift&pli=1" target="_blank" rel="noopener noreferrer" class="bg-gray-800 border border-gray-700 text-white px-4 py-2.5 rounded-lg flex items-center gap-3 hover:bg-gray-700 transition justify-center md:justify-start">
+            <span class="text-[10px] text-left leading-tight text-gray-400">GET IT ON<br><span class="text-sm font-bold text-white">Google Play</span></span>
+        </a>
+    </div>
+</div>
+替換後（使用你的圖片）：
+
+HTML
+<div class="md:col-span-3 space-y-4">
+    <h5 class="text-white font-bold mb-4 text-center md:text-left">立即下載 APP</h5>
+    <div class="flex flex-col gap-3 items-center md:items-start">
+        <!-- App Store 下載按鈕 (ios.png) -->
+        <a href="https://apps.apple.com/tw/app/bbpatrol%E9%BB%91%E7%AE%B1%E7%B3%BE%E5%AF%9F%E9%9A%8A/id6746429798" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 hover:scale-105 transition-all duration-300 w-[180px]">
+            <img src="ios.png" alt="Download on the App Store" class="w-full h-auto object-contain">
+        </a>
+        
+        <!-- Google Play 下載按鈕 (google-play.png) -->
+        <a href="https://play.google.com/store/apps/details?id=com.timer_swift&pli=1" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 hover:scale-105 transition-all duration-300 w-[180px]">
+            <img src="google-play.png" alt="GET IT ON Google Play" class="w-full h-auto object-contain">
+        </a>
+    </div>
+</div>
+修改重點說明：
+
+將原本繁雜的 div 與 span 文字結構刪除，改用簡單俐落的 <img> 標籤。
+
+圖片來源分別設定為你提供的 ios.png 與 google-play.png。
+
+外層的 <a> 標籤設定了 w-[180px]，這能確保兩張圖片維持相同的寬度比例（如果你覺得太大或太小，可以將 180 改成 160 或 200）。
+
+加上了 hover:opacity-80 hover:scale-105，讓游標移過去時會有微微變透明並放大的按鈕互動感。
+
+1.縮小圖片並且讓他們兩個圖片並列
+
+2.手機板這兩個連結要放置在功能導覽上面
+
+這兩個需求我們可以透過 Tailwind CSS 的 order 屬性（控制手機版與桌機版的顯示順序）以及 flex-row 屬性（讓圖片橫向並排）來輕鬆解決。
+
+請找到你程式碼中最下方的 <!-- 清爽版 Footer --> 區塊，將整段 <footer>...</footer> 完全替換為以下程式碼：
+
+HTML
+
+<!-- 清爽版 Footer -->
+<footer id="download" class="bg-[#121216] pt-16 pb-8 border-t border-gray-900">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-6 mb-12">
+        
+        <!-- 區塊 1：品牌與社群 (手機版排第 1，桌機版排第 1) -->
+        <div class="order-1 md:order-1 md:col-span-4 space-y-4">
+            <div class="flex items-center gap-2 mb-6">
+                <img src="LOGO1.png" alt="BBpatrol Logo" class="w-8 h-8 object-contain rounded-lg">
+                <span class="text-xl font-bold tracking-widest text-white">BBpatrol</span>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                智慧測速，安全同行。<br>加入全台最大的互助駕駛社群。
+            </p>
+            <p class="text-gray-400 text-sm mt-2">Email: service@bbpatrol.com.tw</p>
+            <div class="flex gap-4 pt-4">
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/profile.php?id=61577787920069" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all duration-300">
+                    <img src="facebook.png" alt="BBpatrol Facebook" class="w-full h-full object-contain">
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/bbpatrol.tw/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all duration-300">
+                    <img src="instagram.png" alt="BBpatrol Instagram" class="w-full h-full object-contain">
+                </a>
+                <!-- Threads -->
+                <a href="https://www.threads.com/@bbpatrol.tw?xmt=AQG0wyQuBokbQv6PndQIaAmClPBKYTBOPL536py9IvwfjIYjN4GotcGjEuiCFOSl7iUE5v5h" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all duration-300">
+                    <img src="Threads.png" alt="BBpatrol Threads" class="w-full h-full object-contain">
+                </a>
+                <!-- LINE -->
+                <a href="https://lin.ee/7Gi34hZ" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all duration-300">
+                    <img src="line.png" alt="BBpatrol LINE" class="w-full h-full object-contain">
+                </a>
+            </div>
+        </div>
+
+        <!-- 區塊 2：下載 APP (手機版排第 2，桌機版排第 4) -->
+        <div class="order-2 md:order-4 md:col-span-3 space-y-4">
+            <h5 class="text-white font-bold mb-4 text-center md:text-left">立即下載 APP</h5>
+            <!-- 將 flex-col 改為 flex-row 讓圖片並排，並設定置中對齊 -->
+            <div class="flex flex-row justify-center md:justify-start gap-4">
+                <!-- 將尺寸從 180px 大幅縮小為 w-14 h-14 或 w-16 h-16 -->
+                <a href="https://apps.apple.com/tw/app/bbpatrol%E9%BB%91%E7%AE%B1%E7%B3%BE%E5%AF%9F%E9%9A%8A/id6746429798" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 hover:scale-110 transition-all duration-300 w-14 h-14 md:w-16 md:h-16 block">
+                    <img src="ios.png" alt="Download on the App Store" class="w-full h-full object-contain">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.timer_swift&pli=1" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 hover:scale-110 transition-all duration-300 w-14 h-14 md:w-16 md:h-16 block">
+                    <img src="google-play.png" alt="GET IT ON Google Play" class="w-full h-full object-contain">
+                </a>
+            </div>
+        </div>
+
+        <!-- 區塊 3：功能導覽 (手機版排第 3，桌機版排第 2) -->
+        <div class="order-3 md:order-2 md:col-span-2 md:col-start-6 space-y-3 text-sm text-center md:text-left">
+            <h5 class="text-white font-bold mb-4">功能導覽</h5>
+            <a href="#tutorial" class="block text-gray-500 hover:text-white transition">功能教學</a>
+            <a href="#app-stats" class="block text-gray-500 hover:text-white transition">社群數據</a>
+            <a href="#reviews" class="block text-gray-500 hover:text-white transition">車友評價</a>
+            <a href="#pricing" class="block text-gray-500 hover:text-white transition">訂閱方案</a>
+        </div>
+        
+        <!-- 區塊 4：關於我們 (手機版排第 4，桌機版排第 3) -->
+        <div class="order-4 md:order-3 md:col-span-2 space-y-3 text-sm text-center md:text-left">
+            <h5 class="text-white font-bold mb-4">關於我們</h5>
+            <a href="#" class="block text-gray-500 hover:text-white transition">隱私權政策</a>
+            <a href="#" class="block text-gray-500 hover:text-white transition">服務條款</a>
+            <a href="#" class="block text-gray-500 hover:text-white transition">常見問題 FAQ</a>
+        </div>
+
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-gray-800 text-center md:text-right text-xs text-gray-600">
+        © 2026 BBpatrol. Powered and secured by Github Pages.
+    </div>
+</footer>
+修改重點說明：
+圖片並列與縮小：
+我們將包覆這兩張圖片的容器從 flex-col (直向排列) 改成了 flex-row (橫向並排)。此外，把按鈕尺寸改為 w-14 h-14 (手機版) 與 w-16 h-16 (桌機版)，看起來精緻且大小適中。
+
+改變手機版順序 (Order)：
+我們在 4 個主要欄位上加入了 order-* 與 md:order-*。這代表在手機版時，下載 APP 的區塊會遵守 order-2 (排在第二位，在品牌社群與功能導覽中間)；在桌機版時，它會遵守 md:order-4 (乖乖排在最右側)。同時，順手幫你將導覽文字在手機版設定為 text-center (置中)，畫面整體會更協調好看！
+
+/01數字的字型改成第二張圖的字型
+
+從圖片中可以看出，原本的「/ 01」使用的是帶有裝飾線的字型（在 Tailwind 中是 font-serif），而「20,000+」使用的是俐落的無襯線粗體字（font-sans 搭配最粗的 font-black）。
+
+要讓這兩個地方的數字字型一致，我們只需要把「/ 01」、「/ 02」、「/ 03」的 class 屬性中的 font-serif 改成 font-sans，並且把 font-bold 改成 font-black 讓它更粗、更飽滿。
+
+請在你的 HTML 檔案中搜尋 / 01、/ 02、/ 03，總共有三個地方需要修改：
+
+📝 修改程式碼
+1. 修改「/ 01」的部分：
+
+HTML
+<!-- 修改前 -->
+<div class="text-brand-red font-serif text-2xl tracking-widest font-bold text-center lg:text-left">/ 01</div>
+
+<!-- 修改後 (改為 font-sans 與 font-black) -->
+<div class="text-brand-red font-sans text-2xl tracking-widest font-black text-center lg:text-left">/ 01</div>
+2. 修改「/ 02」的部分：
+
+HTML
+<!-- 修改前 -->
+<div class="text-brand-red font-serif text-2xl tracking-widest font-bold text-center lg:text-left">/ 02</div>
+
+<!-- 修改後 (改為 font-sans 與 font-black) -->
+<div class="text-brand-red font-sans text-2xl tracking-widest font-black text-center lg:text-left">/ 02</div>
+3. 修改「/ 03」的部分：
+
+HTML
+<!-- 修改前 -->
+<div class="text-brand-red font-serif text-2xl tracking-widest font-bold text-center lg:text-left">/ 03</div>
+
+<!-- 修改後 (改為 font-sans 與 font-black) -->
+<div class="text-brand-red font-sans text-2xl tracking-widest font-black text-center lg:text-left">/ 03</div>
+這樣修改後，這三個標題的數字就會變成和「20,000+」一模一樣的俐落粗體字型了！
+
+我要增加faq的模塊
+
+圖1.2是faq的樣式點擊問題後答案會下移跑出來
+
+圖3.4.5.6.7把他轉成文字
+
+沒問題！我已經幫你將圖 3 到圖 7（包含隱藏的第 6 題）的圖片內容轉換為純文字，並結合你希望的「點擊後答案向下滑出」的 Accordion（手風琴）特效，設計成符合你目前網站暗色系風格的 FAQ 模塊。
+
+請按照以下兩個步驟將程式碼加入你的網站中：
+
+第一步：加入 FAQ HTML 結構
+請將這段 HTML 程式碼貼在 訂閱方案 (Pricing Section) 結束後、頁尾 (Footer) 區塊之前。
+
+HTML
+
+<!-- 4. 常見問題 FAQ 區塊 -->
+<section id="faq-section" class="py-16 md:py-24 bg-[#121216] border-t border-gray-900">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+        <div class="text-center mb-10 md:mb-16">
+            <h2 class="text-3xl md:text-5xl font-black text-white mb-4">常見問題 FAQ</h2>
+            <p class="text-gray-400 text-sm md:text-base">關於 BBpatrol，車友們最常問的幾個問題</p>
+        </div>
+
+        <div class="space-y-2">
+            <!-- Q1 -->
+            <div class="border-b border-gray-800">
+                <button class="faq-button w-full text-left flex justify-between items-center py-5 text-white font-bold text-lg hover:text-brand-red transition-colors focus:outline-none">
+                    <span>Q. 錯過最佳回報點怎麼辦？</span>
+                    <span class="faq-icon text-2xl font-normal transition-transform duration-300">+</span>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="text-gray-400 pb-5 leading-relaxed">
+                        可以使用語音回報、圖文寫上備註，或私訊 IG/LINE，工作人員會幫您的回報調整至正確位置。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="border-b border-gray-800">
+                <button class="faq-button w-full text-left flex justify-between items-center py-5 text-white font-bold text-lg hover:text-brand-red transition-colors focus:outline-none">
+                    <span>Q. 收隊 vs 持續回報？</span>
+                    <span class="faq-icon text-2xl font-normal transition-transform duration-300">+</span>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="text-gray-400 pb-5 leading-relaxed">
+                        <strong class="text-white">收隊：</strong>警察已離開。<br>
+                        <strong class="text-white">持續回報：</strong>警察仍在現場。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="border-b border-gray-800">
+                <button class="faq-button w-full text-left flex justify-between items-center py-5 text-white font-bold text-lg hover:text-brand-red transition-colors focus:outline-none">
+                    <span>Q. APP一定會提醒嗎？</span>
+                    <span class="faq-icon text-2xl font-normal transition-transform duration-300">+</span>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="text-gray-400 pb-5 leading-relaxed">
+                        即時回報制的特性，依靠眾多使用者當下目擊回報，確保資訊是「正在進行式」。所以若沒有提醒，代表安全或是尚未有人回報此處。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="border-b border-gray-800">
+                <button class="faq-button w-full text-left flex justify-between items-center py-5 text-white font-bold text-lg hover:text-brand-red transition-colors focus:outline-none">
+                    <span>Q. 這 App 準確度高嗎？</span>
+                    <span class="faq-icon text-2xl font-normal transition-transform duration-300">+</span>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="text-gray-400 pb-5 leading-relaxed">
+                        使用者越多、回報頻率越高，提醒則越即時、準確。目前用戶量快速成長，準確度已明顯提升。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="border-b border-gray-800">
+                <button class="faq-button w-full text-left flex justify-between items-center py-5 text-white font-bold text-lg hover:text-brand-red transition-colors focus:outline-none">
+                    <span>Q. 語音包怎麼收藏？</span>
+                    <span class="faq-icon text-2xl font-normal transition-transform duration-300">+</span>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="text-gray-400 pb-5 leading-relaxed">
+                        在語音包點擊「愛心」即可加入收藏，可用於訂閱會員隨機切換功能。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="border-b border-gray-800">
+                <button class="faq-button w-full text-left flex justify-between items-center py-5 text-white font-bold text-lg hover:text-brand-red transition-colors focus:outline-none">
+                    <span>Q. 三次提醒是什麼意思？</span>
+                    <span class="faq-icon text-2xl font-normal transition-transform duration-300">+</span>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <div class="text-gray-400 pb-5 leading-relaxed space-y-2">
+                        <p>每個回報點提醒 3 次：</p>
+                        <ul class="list-decimal list-inside text-white font-medium pl-2">
+                            <li>500m 提前提醒</li>
+                            <li>100m 再次提醒</li>
+                            <li>通過後提醒更新現況</li>
+                        </ul>
+                        <p class="pt-2">通過後按「收隊 / 持續回報」以更新現場狀況。</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+第二步：加入觸發動畫的 JavaScript
+要讓答案可以順暢地下滑展開，我們需要加上一小段 JavaScript 邏輯。請將這段程式碼貼在你 HTML 檔案最下方，原本的 <script>...</script> 區塊裡面（可以放在你寫儀表板數字跳動動畫的下方）：
+
+JavaScript
+
+// 3. FAQ 展開與收合控制
+document.addEventListener("DOMContentLoaded", () => {
+    const faqButtons = document.querySelectorAll('.faq-button');
+
+    faqButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            
+            // 檢查目前點擊的項目是否已經打開
+            const isOpen = answer.style.maxHeight;
+
+            // (可選) 點擊時先關閉其他已展開的 FAQ，保持畫面整潔
+            document.querySelectorAll('.faq-answer').forEach(ans => {
+                ans.style.maxHeight = null;
+                ans.previousElementSibling.querySelector('.faq-icon').textContent = '+';
+                ans.previousElementSibling.querySelector('.faq-icon').classList.remove('rotate-45', 'text-brand-red');
+            });
+
+            // 如果原本是關閉的，則打開它
+            if (!isOpen) {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                icon.textContent = '+'; // 可以改成 '-' 或保持 '+' 並用旋轉動畫
+                icon.classList.add('rotate-45', 'text-brand-red'); // 旋轉 45 度變成叉叉 (x) 
+            }
+        });
+    });
+});
+💡 特效說明：
+樣式完美融合：完全套用了你原有的 bg-[#121216] 暗色背景、border-gray-800 灰線，以及游標滑過時字體會變亮紅色的 hover:text-brand-red 設定。
+
+滑順展合動畫 (Accordion)：使用了 max-height 和 overflow-hidden 來達成答案滑順展開的效果。
+
+按鈕圖示：當你點開問題時，右側的「+」號會平滑旋轉 45 度變成「×」，並且變成紅色，提示使用者點擊可以收起。
+
+我要再做一個隱私權政策跟服務條款的網頁
+
+已經有文案
+
+如何建置
+
+因為你的網站目前是部署在 GitHub Pages 上（屬於靜態網站），所以建置隱私權政策與服務條款最標準且對 SEO 最友好的做法，就是建立兩個新的 HTML 檔案，並與你的主程式（通常叫 index.html）放在同一個資料夾底下。
+
+以下是完整的建置步驟與我為你準備好的排版模板：
+
+步驟 1：建立兩個新的 HTML 檔案
+在你的專案資料夾（你放 index.html 的地方）中，新增兩個空白檔案：
+
+命名為 privacy.html（隱私權政策）
+
+命名為 terms.html（服務條款）
+
+步驟 2：貼上法律文件專屬模板
+為了讓你貼上文案後就能有好看的排版，而且保留你網站原本的黑紅配色風格、導覽列與頁尾。請將以下程式碼複製，分別貼到 privacy.html 和 terms.html 中。
+
+⚠️ 注意： 貼上後，請將 <!-- 標題 --> 與 <!-- 內容 --> 替換成你的實際文案。
+
+HTML
+
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 根據是隱私權還是服務條款，修改下方的 Title -->
+    <title>隱私權政策 - BBpatrol 雙平台測速系統</title>
+    <link rel="icon" type="image/png" href="LOGO1.png">
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0d0d12; color: #f3f4f6; }
+        .text-brand-red { color: #e52e3d; }
+        .bg-brand-red { background-color: #e52e3d; }
+        
+        /* 針對長篇文章的自動排版設定，讓你貼上純 HTML 標籤就會自動變好看 */
+        .legal-content h1 { font-size: 2.25rem; font-weight: 900; color: white; margin-bottom: 2rem; }
+        .legal-content h2 { font-size: 1.5rem; font-weight: 700; color: white; margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 1px solid #1f2937; padding-bottom: 0.5rem; }
+        .legal-content h3 { font-size: 1.125rem; font-weight: 700; color: white; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .legal-content p { color: #9ca3af; line-height: 1.8; margin-bottom: 1.25rem; }
+        .legal-content ul { color: #9ca3af; list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; line-height: 1.8; }
+        .legal-content a { color: #e52e3d; text-decoration: underline; }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden flex flex-col min-h-screen">
+
+    <!-- 導覽列 (特別修改了連結，確保點擊會回到首頁 index.html) -->
+    <nav class="fixed w-full z-50 bg-[#0d0d12]/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
+            <!-- 點擊 Logo 回到首頁 -->
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="LOGO1.png" alt="BBpatrol Logo" class="w-8 h-8 object-contain rounded-lg">
+                <span class="text-lg md:text-xl font-bold tracking-widest text-white">BBpatrol</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+                <a href="index.html#tutorial" class="hover:text-white transition">功能教學</a>
+                <a href="index.html#app-stats" class="hover:text-white transition">社群數據</a>
+                <a href="index.html#reviews" class="hover:text-white transition">車友評價</a>
+                <a href="index.html#pricing" class="hover:text-white transition">訂閱方案</a>
+            </div>
+            <a href="index.html#download" class="bg-white text-black px-4 py-1.5 md:px-5 md:py-2 rounded-full text-xs md:text-sm font-bold hover:bg-gray-200 transition">取得 APP</a>
+        </div>
+    </nav>
+
+    <!-- 文章內容區塊 -->
+    <main class="flex-grow pt-32 pb-20">
+        <div class="max-w-4xl mx-auto px-6 legal-content">
+            
+            <!-- ====== 在這裡貼上你的文案 ====== -->
+            
+            <h1>隱私權政策</h1>
+            <p>最後更新日期：2026年7月</p>
+            
+            <h2>1. 我們收集的資訊</h2>
+            <p>這是測試段落。我們致力於保護您的個人隱私。本隱私權政策說明了當您使用 BBpatrol 應用程式時，我們如何收集、使用及保護您的個人資訊。</p>
+            
+            <h2>2. 資訊的使用方式</h2>
+            <ul>
+                <li>用於提供並維護我們的服務</li>
+                <li>用於改善即時路況準確度</li>
+                <li>提供專屬的客戶支援</li>
+            </ul>
+
+            <!-- =============================== -->
+
+        </div>
+    </main>
+
+    <!-- 簡易版 Footer -->
+    <footer class="bg-[#121216] py-8 border-t border-gray-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-500">
+            <div class="space-x-4 mb-4">
+                <a href="index.html" class="hover:text-white transition">回到首頁</a>
+                <a href="privacy.html" class="hover:text-white transition">隱私權政策</a>
+                <a href="terms.html" class="hover:text-white transition">服務條款</a>
+            </div>
+            © 2026 BBpatrol. Powered and secured by Github Pages.
+        </div>
+    </footer>
+
+</body>
+</html>
+步驟 3：修改首頁 (index.html) 的 Footer 連結
+回到你的主網頁 index.html，滑到最下面找到 <!-- 區塊 4：關於我們 --> 的地方。
+
+將原本的 # 替換成剛剛建立的檔案名稱：
+
+HTML
+<!-- 區塊 4：關於我們 -->
+<div class="order-4 md:order-3 md:col-span-2 space-y-3 text-sm text-center md:text-left">
+    <h5 class="text-white font-bold mb-4">關於我們</h5>
+    <!-- 加上正確的連結 -->
+    <a href="privacy.html" class="block text-gray-500 hover:text-white transition">隱私權政策</a>
+    <a href="terms.html" class="block text-gray-500 hover:text-white transition">服務條款</a>
+    <a href="#faq-section" class="block text-gray-500 hover:text-white transition">常見問題 FAQ</a>
+</div>
+(備註：我也順便把「常見問題 FAQ」的連結指向了你上一題剛做好的 #faq-section 區塊，這樣使用者點擊就會滑到常見問題處！)
+
+步驟 4：上傳至 GitHub
+將修改好的 index.html 以及新建立的 privacy.html、terms.html 上傳 (Commit & Push) 到 GitHub。等 GitHub Pages 幾分鐘的重新整理時間，點擊你首頁下方的連結，就能成功跳轉到專屬的條款頁面了！
+
+💡 貼文案的小提示：
+因為我在 <style> 裡面寫好了 .legal-content 的自動排版，你在替換文案時，完全不需要寫 Tailwind class，只要用最基本的 HTML 標籤包住文字就好：
+
+大標題用 <h1>...</h1>
+
+段落標題用 <h2>...</h2>
+
+一般文字用 <p>...</p>
+
+條列重點用 <ul><li>...</li></ul>
+它會自動套用灰底白字、合適的行距與底線，看起來會非常專業！
+
+隱私權政策 
+
+最後更新日期：2025年5月21日 
+
+ 
+
+本隱私權政策描述了您在使用本服務時，我們對您資訊的收集、使用和披露政策及程序，並告知您有關隱私權利及法律如何保護您的資訊。 
+
+ 
+
+我們使用您的個人資料來提供和改進本服務。使用本服務即表示您同意根據本隱私權政策收集和使用資訊。本隱私權政策由免費隱私權政策生成器協助創建。 
+
+ 
+
+### 解釋與定義 
+
+ 
+
+定義 
+
+為本隱私權政策之目的： 
+
+ 
+
+
+
+帳戶：指為您創建的獨特帳戶，用以存取我們的服務或服務的某些部分。 
+
+
+
+關聯公司：指控制、被控制或與某方共同控制的實體，其中「控制」指擁有50%或以上股份、股權或其他有權投票選舉董事或其他管理權的證券。 
+
+
+
+應用程式：指由公司提供的軟體程式「BBpatrol黑箱糾察隊」。 
+
+
+
+公司（在本協議中稱為「公司」、「我們」或「我們的」）：指微碩有限公司，地址為台中市北屯區安順一街33號。 
+
+
+
+國家：指台灣。 
+
+
+
+設備：指可存取本服務的任何設備，例如電腦、手機或數位平板。 
+
+
+
+個人資料：指與已識別或可識別個人相關的任何資訊。 
+
+
+
+服務：指應用程式。 
+
+
+
+服務提供者：指代表公司處理資料的任何自然人或法人，包括公司雇用的第三方公司或個人，以促進服務、代表公司提供服務、執行與服務相關的服務，或協助公司分析服務使用情況。 
+
+
+
+第三方社群媒體服務：指用戶可透過其登入或創建帳戶以使用本服務的任何網站或社群網路網站。 
+
+
+
+使用資料：指使用服務時自動收集的資料，這些資料可能由服務使用或服務基礎設施生成（例如，頁面訪問時長）。 
+
+
+
+您：指存取或使用服務的個人，或代表該個人存取或使用服務的公司或其他法人實體（視適用情況而定）。 
+
+ 
+
+### 收集與使用您的個人資料 
+
+收集的資料類型 
+
+
+
+
+
+個人資料 
+
+在使用我們的服務時，我們可能會要求您提供可用於聯繫或識別您的個人身份資訊。這些資訊包括但不限於： 
+
+ 
+
+
+
+使用資料 
+
+
+
+使用資料：使用服務時會自動收集使用資料。 
+
+
+
+
+使用資料可能包括您的設備的網際網路協定地址（例如 IP 地址）、瀏覽器類型、瀏覽器版本、您訪問的服務頁面、訪問的時間和日期、在這些頁面停留的時間、唯一設備識別碼及其他診斷資料。
+
+
+當您透過行動設備存取服務時，我們可能自動收集特定資訊，包括但不限於您使用的行動設備類型、行動設備唯一
+
+ID、行動設備的 IP 地址、行動作業系統、使用的行動網際網路瀏覽器類型、唯一設備識別碼及其他診斷資料。 
+
+ 
+
+每當您訪問我們的服務或透過行動設備存取服務時，我們也可能收集您的瀏覽器發送的資訊。 
+
+ 
+
+
+
+第三方社群媒體服務的資訊
+
+公司允許您透過以下第三方社群媒體服務創建帳戶並登入使用服務： 
+
+ 
+
+●      Apple
+
+●      Google 
+
+●      Facebook 
+
+●      Line
+
+ 
+
+若您選擇透過第三方社群媒體服務註冊或授權我們存取，您已關聯該服務帳戶的個人資料（例如您的姓名、電子郵件地址、活動或該帳戶的聯繫人清單）可能會被我們收集。 
+
+
+
+
+
+您也可選擇透過第三方社群媒體服務帳戶與公司分享額外資訊。若您在註冊或其他情況下提供此類資訊和個人資料，即表示您允許公司按照本隱私權政策使用、分享和儲存這些資訊。 
+
+ 
+
+
+
+使用應用程式時收集的資訊 
+
+
+
+在使用我們的應用程式時，為了提供應用程式的功能，我們可能在獲得您事先許可的情況下收集： 
+
+ 
+
+●      您的位置資訊 
+
+●      來自您設備相機和照片庫的圖片及其他資訊 
+
+ 
+
+我們使用這些資訊來提供服務功能，改進和客製化我們的服務。這些資訊可能上傳至公司伺服器和/或服務提供者的伺服器，或僅儲存在您的設備上。 
+
+ 
+
+您可隨時透過裝置設定開啟或關閉定位、相機、麥克風等權限。若您停用部分權限，某些功能可能無法正常運作，但您仍可使用本服務的基本功能。
+
+ 
+
+
+
+本服務不會要求您提供任何敏感個人資料。如有例外，將事先取得您的明確同意。
+
+ 
+
+
+
+6.    使用應用商店訂閱的資訊
+
+若您透過應用商店（如 Apple App Store 或 Google Play）訂閱本服務，相關的交易資訊（如交易編號、訂閱狀態）將由
+
+Apple 或 Google 處理。我們不會儲存您的支付資料，例如信用卡號或其他付款方式的詳細資訊。我們僅會接收來自 Apple / Google 的訂閱狀態確認資訊，以用於服務驗證之目的。
+
+ 
+
+ 
+
+### 個人資料的使用 
+
+
+
+公司可能出於以下目的使用個人資料： 
+
+
+ 
+
+●      提供和維護服務：包括監控服務的使用情況。 
+
+●      管理您的帳戶：管理您作為服務用戶的註冊，提供的個人資料可讓您存取服務的不同功能。 
+
+●      履行合同：開發、遵守和執行您透過服務購買的產品、項目或服務的購買合同，或與我們的其他合同。 
+
+●      聯繫您：透過電子郵件、電話、簡訊或其他等效電子通訊方式（例如應用程式的推播通知）聯繫您，提供與功能、產品或合同服務相關的更新或資訊，包括必要或合理的資安更新。 
+
+●      提供資訊：向您提供與您已購買或詢問的商品、服務及活動相似的其他商品、服務和活動的新聞、特別優惠及一般資訊，除非您選擇不接收此類資訊。 
+
+●      管理您的請求：處理並管理您對我們的請求。 
+
+●      業務轉讓：使用您的資訊來評估或進行合併、剝離、重组、重組、解散或其他資產出售或轉讓，無論是持續經營或作為破產、清算或類似程序的一部分，您的個人資料可能在轉讓的資產中。 
+
+●      其他目的：使用您的資訊進行資料分析、識別使用趨勢、確定促銷活動效果，以及評估和改進我們的服務、產品、服務、行銷和您的體驗。 
+
+ 
+
+
+
+分享您的個人資訊 
+
+我們可能在以下情況下分享您的個人資訊： 
+
+ 
+
+●      與服務提供者：分享您的個人資訊以監控和分析服務使用情況，或聯繫您。 
+
+●      業務轉讓：在合併、公司資產出售、融資或收購全部或部分業務的談判或過程中，分享或轉讓您的個人資訊。 
+
+●      與關聯公司：分享您的資訊給我們的關聯公司，並要求其遵守本隱私權政策。 
+
+●      與業務夥伴：與我們的業務夥伴分享您的資訊，以向您提供特定產品、服務或促銷活動。 
+
+●      與其他用戶：當您在公共區域分享個人資訊或與其他用戶互動時，該資訊可能被所有用戶查看並可能公開散布。若您透過第三方社群媒體服務與其他用戶互動或註冊，您的第三方社群媒體服務聯繫人可能看到您的姓名、個人資料、圖片和活動描述。其他用戶同樣可查看您的活動描述、與您聯繫並查看您的個人資料。 
+
+●      經您同意：在您同意的情況下，為其他目的披露您的個人資訊。 
+
+ 
+
+### 個人資料的保留 
+
+公司僅在實現本隱私權政策所述目的所需的期間內保留您的個人資料。我們將保留和使用您的個人資料，以遵守法律義務（例如，保留資料以符合適用法律）、解決爭議及執行法律協議和政策。 
+
+ 
+
+公司也會保留使用資料進行內部分析。使用資料的保留時間通常較短，除非該資料用於增強服務安全性或改進功能，或我們依法需保留更長時間。 
+
+ 
+
+### 個人資料的轉移 
+
+您的資訊（包括個人資料）在公司的營運辦公室及處理相關方的所在地進行處理。這意味著資訊可能被轉移並儲存在您所在州、省、國家或其他司法管轄區以外的電腦上，這些地方的資料保護法可能與您所在的司法管轄區不同。 
+
+ 
+
+您同意本隱私權政策並提交此類資訊，即表示您同意該轉移。 
+
+ 
+
+公司將採取合理必要的所有步驟，確保您的資料安全處理並符合本隱私權政策。除非有適當的控制措施（包括您的資料和其他個人資訊的安全性），否則不會將您的個人資料轉移到任何組織或國家。 
+
+ 
+
+### 刪除您的個人資料 
+
+您有權刪除或請求我們協助刪除我們收集的您的個人資料。 
+
+ 
+
+我們的服務可能允許您從服務內刪除您的某些資訊。 
+
+ 
+
+您可隨時登入您的帳戶（若有），並訪問帳戶設定部分管理您的個人資訊，更新、修改或刪除您的資訊。您也可聯繫我們，請求存取、更正或刪除您提供給我們的任何個人資訊。 
+
+ 
+
+請注意，若我們有法律義務或合法依據，我們可能需要保留某些資訊。 
+
+ 
+
+### 個人資料的披露 
+
+商業交易 
+
+若公司涉及合併、收購或資產出售，您的個人資料可能被轉移。我們將在您的個人資料轉移並受不同隱私權政策約束前通知您。 
+
+ 
+
+執法 
+
+在特定情況下，若法律要求或公共當局（例如法院或政府機關）的合法請求，公司可能需披露您的個人資料。 
+
+ 
+
+其他法律要求 
+
+公司可能在善意相信必要時披露您的個人資料，以： 
+
+ 
+
+
+
+遵守法律義務 
+
+
+
+保護和捍衛公司的權利或財產 
+
+
+
+防止或調查與服務相關的可能不當行為 
+
+
+
+
+保護服務用戶或公眾的個人安全 
+
+
+
+防止法律責任 
+
+ 
+
+### 個人資料的安全 
+
+您的個人資料安全對我們很重要，但請記住，網際網路傳輸或電子儲存方式無法保證100%安全。我們致力於使用商業上可接受的方式保護您的個人資料，但無法保證其絕對安全。 
+
+ 
+
+### 兒童隱私 
+
+我們的服務不針對13歲以下的任何人。我們不會故意收集13歲以下個人的個人身份資訊。若您是父母或監護人，且知道您的孩子向我們提供了個人資料，請聯繫我們。若我們發現未經父母同意收集了13歲以下個人的個人資料，我們將採取措施從伺服器中移除該資訊。 
+
+ 
+
+若我們需依賴同意作為處理您資訊的法律依據，且您的國家要求父母同意，我們可能在收集和使用該資訊前要求您的父母同意。 
+
+ 
+
+### 其他網站的連結 
+
+我們的服務可能包含非我們運營的其他網站連結。若您點擊第三方連結，您將被導向該第三方網站。我們強烈建議您審查您訪問的每個網站的隱私權政策。 
+
+ 
+
+我們對第三方網站或服務的內容、隱私權政策或做法無控制權，亦不承擔任何責任。 
+
+ 
+
+### 本隱私權政策的變更 
+
+我們可能不時更新我們的隱私權政策。我們將透過在此頁面發布新的隱私權政策通知您任何變更。 
+
+ 
+
+在變更生效前，我們將透過電子郵件和/或服務內的顯著通知告知您，並更新本隱私權政策頂部的「最後更新」日期。 
+
+ 
+
+建議您定期審查本隱私權政策以了解任何變更。本隱私權政策的變更自發布於此頁面時生效。 
+
+ 
+
+如本隱私權政策有不同語言版本，當發生爭議時，以繁體中文版本為準。
+
+ 
+
+### 聯繫我們 
+
+若您對本隱私權政策有任何問題，可透過以下方式聯繫我們： 
+
+ 
+
+電子郵件：weishuo@bbpatrol.com.tw
+
+
+
+這是隱私權條款
+
+直接貼入privacy.html的code裡
+
+這就為你把隱私權政策的文案排版好並生成為 privacy.html 檔案。
+
+你的檔案準備好了：
+「HTML」圖示
+privacy
+ HTML 
+開啟
+
+你可以直接下載這個檔案並上傳到你的 GitHub 專案中，替換掉原本空白的 privacy.html。
+這個頁面包含了與你首頁一致的黑色系主題、紅色點綴、頂部導覽列以及底部的 Footer。字體大小、行距等我也幫你微調好了，閱讀起來會非常舒適。
+
+若你有「服務條款」的文案，也可以貼上來，我會用同樣的格式為你建置 terms.html！
+
+服務條款的內容如下
+
+依樣直接貼入code
+
+
+
+ZH
+
+使用條款
+
+歡迎使用本平台（以下簡稱「本APP」）。使用本APP前，請您詳閱以下使用條款。您一旦下載、安裝或使用本APP，即表示您同意本條款的所有內容。
+
+
+
+一、服務內容
+
+1. 本APP提供行車速度偵測、測速照相提示、語音提醒、用戶回報等功能。
+
+2. 所有功能均以促進行車安全為前提，僅供使用者自行參考，使用者仍應依照當地交通法規安全駕駛。
+
+
+
+二、用戶行為規範
+
+1. 使用者不得透過本APP上傳任何違法、不實、具侵權或不當內容（例如：未經授權的語音檔案或照片）。
+
+2. 使用者不得以任何方式干擾、破壞本APP運作，或進行未經授權的資料存取。
+
+3. 使用者所發布之內容負全部責任。若因使用者的內容導致第三方權益受損，您應自行承擔法律責任。
+
+4. 不得濫用本平台，例如重複上傳垃圾訊息、騷擾其他用戶或干擾系統正常運作。
+
+5. 若您發現平台上有違反法律或侵害您權益的內容，可透過 App 內檢舉功能或聯絡客服提出移除請求。本平台將於收到通知後儘速處理，並保有刪除不當內容之權利。
+
+三、帳號與資料管理
+
+1. 若需登入，本APP將建立使用者帳號，並可能記錄會員上傳之語音包、回報記錄等資料。
+
+2. 使用者應妥善保管個人帳號與密碼，若發現異常使用請立即通知本公司。
+
+四、您的承諾
+
+若要使用我們承諾提供的服務，您也必須承諾遵守以下事項：
+
+4.1 誰可以使用本服務
+
+1. 您必須年滿 13 歲或依您所在地法律規定的最低合法年齡，方可使用本APP。如您未滿法定年齡，須由法定監護人閱讀並同意本條款，方可註冊或使用本APP。
+
+2. 依適用法律規定，您必須有權使用我們的服務；若您被列入拒絕往來名單，將無法使用我們的部分功能（如付款服務）。
+
+3. 您未曾因違反法律或本平台政策而遭停權。
+
+4. 您不得為經法院有罪判決或曾受行政機關裁罰之交通事故犯罪者（包括但不限於妨害交通罪、肇事逃逸罪、不能安全駕駛罪、受認定為危險駕駛）。
+
+4.2 禁止的使用情況
+
+1. 不得冒充他人、提供錯誤資訊，或未經授權為他人建立帳號。
+
+2. 不得進行違法、詐欺、誤導或未經授權的行為。
+
+3. 不得干擾或破壞本服務正常運作（例如惡意報告、濫用異議機制等）。
+
+4. 不得透過自動化方式建立帳號、存取或蒐集資料。
+
+5. 不得販售、購買、轉讓帳號或帳號資料。
+
+6. 不得未經允許揭露他人私密或機密資訊，或侵犯智慧財產權。
+
+7. 不得對平台或系統進行反向工程、修改、創作衍生作品。
+
+8. 不得在用戶名稱中使用未經授權的網域名稱或網址。
+
+9. 不得規避我們實施的存取控制措施。
+
+4.3 您授予我們的權限
+
+1. 您保留對內容的所有權，但授權我們全球、免權利金、可再授權的權利以託管、使用、發佈、翻譯或改作。
+
+2. 當您刪除帳號時，上述授權即終止。
+
+3. 我們可使用您的使用者名稱、大頭貼及互動資訊（如按愛心）於本平台與廣告內容展示中，且無需額外報酬。
+
+4. 您同意我們可以在您的裝置上下載與安裝服務的更新。
+
+5. 使用者所上傳的內容，您確認擁有其授權，或已取得合法授權。若因此造成第三方權利受損，您應負全責。本平台保有刪除或下架違規內容之權利，並可拒絕再次上架。若您上傳內容含有音樂、商標、肖像等第三方權利，您應保證已取得必要授權或屬合理使用範圍。
+
+五、我們保留的其他權利
+
+1. 若您的帳號名稱或識別資訊違反他人權益，我們保留變更權利。
+
+2. 未經我們書面同意，不得使用我們的品牌、標誌、原始碼或創作衍生作品。
+
+六、隱私與權限
+
+1. 本APP會依法蒐集、使用及保護您的個人資料，相關規範請參考《隱私權政策》。
+
+2. 為提供完整服務，本 APP 可能會請求以下權限，僅於執行必要功能時啟用，且不會在未經您操作同意的情況下於背景自動啟動：
+
+a. GPS位置權限：用於偵測行駛位置，顯示限速提示與推播區域性警示資訊。
+
+b. 相機與相簿權限：用於拍攝與上傳回報照片，或自訂語音封面。
+
+c. 背景運行權限：確保 App 可在螢幕關閉或切換至其他 App 時，持續提供語音提醒服務。
+
+d. 錄音與麥克風權限：提供語音上傳、音效互動功能
+
+3. 您可隨時透過手機裝置的「設定」介面，進入「應用程式」或「隱私權與安全性」頁面，個別開啟或關閉本 APP 的權限，包括位置、相機、麥克風等。
+
+若關閉部分權限，部分功能可能無法正常運作（如定位提醒或語音上傳），但您仍可使用本 APP 的其他基本功能。
+
+七、第三方服務
+
+1. 本app功能可能使用 Google Firebase、Cloudflare 等第三方雲端服務，並將資料儲存於其境外伺服器。所有資料處理行為皆依該第三方之政策執行，並僅限於本服務運作範圍內之使用。
+
+2. 本平台不負責第三方平台之隱私或資料處理行為。
+
+
+
+八、智慧財產權
+
+1. 本APP所有內容（包含UI、圖像、語音、資料庫等）均為本公司或授權方所有，非經授權不得擅自使用。
+
+2. 使用者上傳內容如涉及第三方權利，應由使用者自負相關責任。
+
+九、免責聲明
+
+1. 本APP僅提供輔助提示服務，我們將致力於維護資料正確性，但無法保證所有測速照相資料完全即時或正確。使用者仍應時刻保持安全駕駛並將所得資訊為參考使用，對因使用本平台內容而產生之損害不負賠償責任。
+
+2. 因用戶裝置或網路異常導致之功能無法使用、語音提醒延遲等情況，本公司不負賠償責任。
+
+3. 行駛中應遵守交通規則，切勿操作手機。
+
+十、帳號暫停與終止
+
+1. 我們有權在您違反條款時限制或終止您的帳號，並保留刪除違規內容之權利。
+
+2. 使用者可於本平台申請刪除帳號與個人資料。我們將依據《隱私權政策》處理資料移除，並於法令允許的範圍內進行保留或刪除作業。帳號刪除後，您將無法再存取過去資料與功能，亦無法恢復相關記錄。
+
+
+
+十一、服務調整與終止
+
+1. 本公司有權隨時變更、暫停或終止本APP之全部或部分服務，恕不另行通知。
+
+2. 本公司保留修改本條款之權利，修改後將更新於APP或官網，建議使用者定期查閱。
+
+3. 若您選擇訂閱服務，付款將透過 Google Play 或 Apple ID 帳號扣款，並於每期自動續訂。您可隨時透過裝置的訂閱管理功能取消續訂。取消後，仍可於已付款期間使用完整功能，直至訂閱期結束。
+
+十二、廣告與合作內容
+
+本平台可能展示第三方廣告、品牌合作貼文或推廣內容。此類內容可能根據您的使用偏好或互動資料顯示，您理解並同意本平台於相關區塊展示其資訊。對於第三方廣告內容之真實性與合法性，請使用者自行判斷，本平台不擔保其內容正確性或結果。
+
+十三、聯繫與通知方式
+
+本平台將透過註冊帳號所綁定之電子郵件、手機簡訊、或 App 內推播訊息發送重要通知。請使用者確認聯絡方式正確，若未及時更新導致無法接收通知，視為已送達。您亦可透過客服信箱與我們聯繫，信箱為：weishuo@bbpatrol.com.tw。
+
+十四、條款完整性與可分割性
+
+若本條款中任何部分被判定為無效、非法或不可執行，其餘部分仍具完整效力。本條款為您與本平台之完整協議，取代您與我們之任何先前約定或協議。
+
+十五、條款語言版本
+
+本使用條款可能提供不同語言版本供使用者閱讀，若條文內容出現歧異，應以繁體中文版為準。
+
+十六、準據法與管轄
+
+本條款依中華民國法律解釋與適用，如有任何爭議，雙方同意以台灣台中地方法院為第一審管轄法院。
+
+
+
+你停止了這則回覆
+服務條款的內容如下
+
+依樣直接貼入code
+
+
+
+使用條款
+
+歡迎使用本平台（以下簡稱「本APP」）。使用本APP前，請您詳閱以下使用條款。您一旦下載、安裝或使用本APP，即表示您同意本條款的所有內容。
+
+ 
+
+
+
+一、服務內容
+
+
+
+本APP提供行車速度偵測、測速照相提示、語音提醒、用戶回報等功能。
+
+
+
+所有功能均以促進行車安全為前提，僅供使用者自行參考，使用者仍應依照當地交通法規安全駕駛。
+
+
+
+
+
+
+
+二、用戶行為規範
+
+
+
+
+
+使用者不得透過本APP上傳任何違法、不實、具侵權或不當內容（例如：未經授權的語音檔案或照片）。
+
+
+
+使用者不得以任何方式干擾、破壞本APP運作，或進行未經授權的資料存取。
+
+
+
+使用者所發布之內容負全部責任。若因使用者的內容導致第三方權益受損，您應自行承擔法律責任。
+
+
+
+不得濫用本平台，例如重複上傳垃圾訊息、騷擾其他用戶或干擾系統正常運作。
+
+
+
+若您發現平台上有違反法律或侵害您權益的內容，可透過 App 內檢舉功能或聯絡客服提出移除請求。本平台將於收到通知後儘速處理，並保有刪除不當內容之權利。
+
+三、帳號與資料管理
+
+
+
+若需登入，本APP將建立使用者帳號，並可能記錄會員上傳之語音包、回報記錄等資料。
+
+
+
+使用者應妥善保管個人帳號與密碼，若發現異常使用請立即通知本公司。
+
+四、您的承諾
+
+若要使用我們承諾提供的服務，您也必須承諾遵守以下事項：
+
+4.1 誰可以使用本服務
+
+
+
+您必須年滿 13 歲或依您所在地法律規定的最低合法年齡，方可使用本APP。如您未滿法定年齡，須由法定監護人閱讀並同意本條款，方可註冊或使用本APP。
+
+
+
+依適用法律規定，您必須有權使用我們的服務；若您被列入拒絕往來名單，將無法使用我們的部分功能（如付款服務）。
+
+
+
+您未曾因違反法律或本平台政策而遭停權。
+
+
+
+您不得為經法院有罪判決或曾受行政機關裁罰之交通事故犯罪者（包括但不限於妨害交通罪、肇事逃逸罪、不能安全駕駛罪、受認定為危險駕駛）。
+
+4.2 禁止的使用情況
+
+
+
+不得冒充他人、提供錯誤資訊，或未經授權為他人建立帳號。
+
+
+
+不得進行違法、詐欺、誤導或未經授權的行為。
+
+
+
+不得干擾或破壞本服務正常運作（例如惡意報告、濫用異議機制等）。
+
+
+
+不得透過自動化方式建立帳號、存取或蒐集資料。
+
+
+
+不得販售、購買、轉讓帳號或帳號資料。
+
+
+
+不得未經允許揭露他人私密或機密資訊，或侵犯智慧財產權。
+
+
+
+不得對平台或系統進行反向工程、修改、創作衍生作品。
+
+
+
+不得在用戶名稱中使用未經授權的網域名稱或網址。
+
+
+
+不得規避我們實施的存取控制措施。
+
+4.3 您授予我們的權限
+
+
+
+您保留對內容的所有權，但授權我們全球、免權利金、可再授權的權利以託管、使用、發佈、翻譯或改作。
+
+
+
+當您刪除帳號時，上述授權即終止。
+
+
+
+我們可使用您的使用者名稱、大頭貼及互動資訊（如按愛心）於本平台與廣告內容展示中，且無需額外報酬。
+
+
+
+您同意我們可以在您的裝置上下載與安裝服務的更新。
+
+
+
+使用者所上傳的內容，您確認擁有其授權，或已取得合法授權。若因此造成第三方權利受損，您應負全責。本平台保有刪除或下架違規內容之權利，並可拒絕再次上架。若您上傳內容含有音樂、商標、肖像等第三方權利，您應保證已取得必要授權或屬合理使用範圍。
+
+五、我們保留的其他權利
+
+
+
+若您的帳號名稱或識別資訊違反他人權益，我們保留變更權利。
+
+
+
+未經我們書面同意，不得使用我們的品牌、標誌、原始碼或創作衍生作品。
+
+六、隱私與權限
+
+
+
+本APP會依法蒐集、使用及保護您的個人資料，相關規範請參考《隱私權政策》。
+
+
+
+為提供完整服務，本 APP 可能會請求以下權限，僅於執行必要功能時啟用，且不會在未經您操作同意的情況下於背景自動啟動：
+
+
+
+
+GPS位置權限：用於偵測行駛位置，顯示限速提示與推播區域性警示資訊。
+
+
+
+相機與相簿權限：用於拍攝與上傳回報照片，或自訂語音封面。
+
+
+
+背景運行權限：確保 App 可在螢幕關閉或切換至其他 App 時，持續提供語音提醒服務。
+
+
+
+錄音與麥克風權限：提供語音上傳、音效互動功能
+
+
+
+
+
+
+您可隨時透過手機裝置的「設定」介面，進入「應用程式」或「隱私權與安全性」頁面，個別開啟或關閉本
+
+APP 的權限，包括位置、相機、麥克風等。
+
+若關閉部分權限，部分功能可能無法正常運作（如定位提醒或語音上傳），但您仍可使用本
+
+APP 的其他基本功能。
+
+七、第三方服務
+
+
+
+本app功能可能使用 Google Firebase、Cloudflare
+
+等第三方雲端服務，並將資料儲存於其境外伺服器。所有資料處理行為皆依該第三方之政策執行，並僅限於本服務運作範圍內之使用。
+
+
+
+本平台不負責第三方平台之隱私或資料處理行為。
+
+
+
+
+
+
+
+八、智慧財產權
+
+
+
+
+
+本APP所有內容（包含UI、圖像、語音、資料庫等）均為本公司或授權方所有，非經授權不得擅自使用。
+
+
+
+使用者上傳內容如涉及第三方權利，應由使用者自負相關責任。
+
+九、免責聲明
+
+
+
+本APP僅提供輔助提示服務，我們將致力於維護資料正確性，但無法保證所有測速照相資料完全即時或正確。使用者仍應時刻保持安全駕駛並將所得資訊為參考使用，對因使用本平台內容而產生之損害不負賠償責任。
+
+
+
+因用戶裝置或網路異常導致之功能無法使用、語音提醒延遲等情況，本公司不負賠償責任。
+
+
+
+行駛中應遵守交通規則，切勿操作手機。
+
+十、帳號暫停與終止
+
+
+
+我們有權在您違反條款時限制或終止您的帳號，並保留刪除違規內容之權利。
+
+
+
+使用者可於本平台申請刪除帳號與個人資料。我們將依據《隱私權政策》處理資料移除，並於法令允許的範圍內進行保留或刪除作業。帳號刪除後，您將無法再存取過去資料與功能，亦無法恢復相關記錄。
+
+ 
+
+十一、服務調整與終止
+
+
+
+本公司有權隨時變更、暫停或終止本APP之全部或部分服務，恕不另行通知。
+
+
+
+本公司保留修改本條款之權利，修改後將更新於APP或官網，建議使用者定期查閱。
+
+
+
+若您選擇訂閱服務，付款將透過 Google Play 或
+
+Apple ID 帳號扣款，並於每期自動續訂。您可隨時透過裝置的訂閱管理功能取消續訂。取消後，仍可於已付款期間使用完整功能，直至訂閱期結束。
+
+十二、廣告與合作內容
+
+本平台可能展示第三方廣告、品牌合作貼文或推廣內容。此類內容可能根據您的使用偏好或互動資料顯示，您理解並同意本平台於相關區塊展示其資訊。對於第三方廣告內容之真實性與合法性，請使用者自行判斷，本平台不擔保其內容正確性或結果。
+
+十三、聯繫與通知方式
+
+本平台將透過註冊帳號所綁定之電子郵件、手機簡訊、或
+
+App 內推播訊息發送重要通知。請使用者確認聯絡方式正確，若未及時更新導致無法接收通知，視為已送達。您亦可透過客服信箱與我們聯繫，信箱為：weishuo@bbpatrol.com.tw。
+
+十四、條款完整性與可分割性
+
+若本條款中任何部分被判定為無效、非法或不可執行，其餘部分仍具完整效力。本條款為您與本平台之完整協議，取代您與我們之任何先前約定或協議。
+
+十五、條款語言版本
+
+本使用條款可能提供不同語言版本供使用者閱讀，若條文內容出現歧異，應以繁體中文版為準。
+
+十六、準據法與管轄
+
+本條款依中華民國法律解釋與適用，如有任何爭議，雙方同意以台灣台中地方法院為第一審管轄法院。
+
+這就為你把服務條款的文案排版好，並生成為 terms.html 檔案。
+
+你的檔案準備好了：
+「HTML」圖示
+terms
+ HTML 
+開啟
+
+你可以直接下載這個檔案並上傳到你的 GitHub 專案中，與剛剛的 privacy.html 放在一起。
+排版風格完全比照前一個檔案，保持了網站整體的一致性，使用者閱讀起來會很順暢。
+
+在隱私權條款裡面
+
+<li><strong>公司</strong>（在本協議中稱為「公司」、「我們」或「我們的」）：指微碩有限公司</li>
+
+
+
+這條我要改掉
+
+不需要透漏公司地址及名稱
+
+可以改用bbpatrol組織的
+
+沒問題，這是一個很常見的隱私權條款調整，隱藏具體負責人或實體公司地址可以增加彈性。
+
+我已經幫你把 privacy.html 裡面的這行程式碼：
+<li><strong>公司</strong>（在本協議中稱為「公司」、「我們」或「我們的」）：指微碩有限公司，地址為台中市北屯區安順一街33號。</li>
+
+替換為：
+<li><strong>公司</strong>（在本協議中稱為「公司」、「我們」或「我們的」）：指 BBpatrol 組織。</li>
+
+這是更新後的檔案，你可以直接下載並覆蓋掉原本的檔案：
+「HTML」圖示
+privacy
+ HTML 
+開啟
+
+（註：服務條款 terms.html 當中原本就沒有提到實體公司名稱與地址，所以不需要做修改！）
+
+隱私權條款跟服務條款分頁都要加上logo
+
+我已經為你在「隱私權政策」與「服務條款」這兩個頁面的正文大標題（也就是 <h1>）的正上方，都加上了一個置中、帶有圓角與陰影質感的 LOGO（使用你原本的 LOGO1.png）。
+
+這樣除了頂部導覽列有小 Logo 以外，閱讀條款時，頁首也會有一個明顯且美觀的品牌標誌！
+
+你的最新檔案準備好了，請直接下載並覆蓋舊檔案：
+
+1. 隱私權政策 (新增 Logo 且已將實體公司改為 BBpatrol 組織)：
+「HTML」圖示
+privacy
+ HTML 
+開啟
+
+2. 服務條款 (新增 Logo)：
+「HTML」圖示
+terms
+ HTML 
+開啟
+
+把這兩個檔案傳上 GitHub 就可以看到效果了！
+
+
+
+
+Gemini 是 AI，有時可能會出錯。
+
+
+匯出
+
 <!DOCTYPE html>
 <html lang="zh-TW" class="scroll-smooth">
 <head>
@@ -43,6 +2067,10 @@
     <main class="flex-grow pt-32 pb-20">
         <div class="max-w-4xl mx-auto px-6 legal-content">
             
+            
+            <div class="flex flex-col items-center justify-center mb-10 mt-4">
+                <img src="LOGO1.png" alt="BBpatrol Logo" class="w-24 h-24 object-contain rounded-2xl shadow-lg mb-4">
+            </div>
             <h1>使用條款</h1>
             
             <p>歡迎使用本平台（以下簡稱「本APP」）。使用本APP前，請您詳閱以下使用條款。您一旦下載、安裝或使用本APP，即表示您同意本條款的所有內容。</p>
@@ -186,3 +2214,5 @@
 
 </body>
 </html>
+terms.html
+目前顯示的是「terms.html」。
